@@ -8,15 +8,15 @@ local diagnostic_signs = {
 }
 
 M.setup = function()
-	-- Register signs
-	for type, icon in pairs(diagnostic_signs) do
-		local hl = "DiagnosticSign" .. type
-		vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-	end
-
 	vim.diagnostic.config({
-		-- Show signs in the gutter
-		signs = true,
+		signs = {
+			text = {
+				[vim.diagnostic.severity.ERROR] = diagnostic_signs.Error,
+				[vim.diagnostic.severity.WARN] = diagnostic_signs.Warn,
+				[vim.diagnostic.severity.INFO] = diagnostic_signs.Info,
+				[vim.diagnostic.severity.HINT] = diagnostic_signs.Hint,
+			},
+		},
 
 		-- Show diagnostics as virtual text
 		virtual_text = {
@@ -24,11 +24,9 @@ M.setup = function()
 			spacing = 4,
 			prefix = "●",
 		},
-		-- virtual_lines = true,
-
 		underline = true,
-
 		-- **IMPORTANT:** Update diagnostics WHILE TYPING
+
 		update_in_insert = true,
 
 		-- Priority for errors > warnings > hints
