@@ -34,6 +34,11 @@ return {
 			-- Show ONLY signs (no colored line numbers)
 			view = {
 				style = "sign",
+				signs = {
+					add = "+",
+					change = "~",
+					delete = "-",
+				},
 			},
 		},
 	},
