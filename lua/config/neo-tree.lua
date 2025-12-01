@@ -64,17 +64,12 @@ function M.setup()
 		-- FILESYSTEM SETTINGS (MAIN TREE)
 		filesystem = {
 			filtered_items = {
-				visible = false, -- Hide filtered items by default
+				visible = true, -- Hide filtered items by default
 				hide_dotfiles = false, -- Keep dotfiles visible (like .env)
 				hide_gitignored = false, -- Hide files ignored by .gitignore
-				-- hide_by_name = { -- Hide specific folders
-				-- 	"node_modules",
-				--	"dist",
-				--	"build",
-				--	".DS_Store",
-				--},
 			},
 
+			-- UPDATED API → must be a table
 			follow_current_file = {
 				enabled = true, -- Auto focus file in tree when opened
 				leave_dirs_open = false,
@@ -86,18 +81,17 @@ function M.setup()
 			hijack_netrw_behavior = "open_default", -- Replace netrw completely
 		},
 
-		-------------------------------------------------------------------
 		-- BUFFERS VIEW (OPEN FILES)
-		-------------------------------------------------------------------
 		buffers = {
-			follow_current_file = true, -- Auto-highlight active buffer
+			-- UPDATED API → must be a table
+			follow_current_file = {
+				enabled = true, -- Auto-highlight active buffer
+			},
 			group_empty_dirs = true,
 			show_unloaded = true,
 		},
 
-		-------------------------------------------------------------------
 		-- GIT STATUS VIEW
-		-------------------------------------------------------------------
 		git_status = {
 			window = {
 				position = "right",
@@ -105,12 +99,10 @@ function M.setup()
 			},
 		},
 
-		-------------------------------------------------------------------
 		-- WINDOW & UI SETTINGS
-		-------------------------------------------------------------------
 		window = {
 			position = "left",
-			width = 35,
+			width = 40,
 
 			-- Keymaps inside neo-tree window
 			mappings = {
