@@ -64,9 +64,10 @@ function M.setup()
 		-- FILESYSTEM SETTINGS (MAIN TREE)
 		filesystem = {
 			filtered_items = {
-				visible = true, -- Hide filtered items by default
+				visible = false, -- Hide filtered items by default
 				hide_dotfiles = false, -- Keep dotfiles visible (like .env)
 				hide_gitignored = false, -- Hide files ignored by .gitignore
+				hide_by_name = { ".DS_Store" }, --Hide specific folders
 			},
 
 			-- UPDATED API → must be a table
@@ -95,7 +96,7 @@ function M.setup()
 		git_status = {
 			window = {
 				position = "right",
-				width = 40,
+				width = 35,
 			},
 		},
 
