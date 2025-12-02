@@ -33,13 +33,6 @@ function M.setup()
 			sh = { "shfmt" },
 		},
 	})
-
-	vim.keymap.set("n", "<leader>cf", function()
-		conform.format({
-			async = true,
-			lsp_fallback = true,
-		})
-	end, { desc = "Format buffer" })
 end
 
 return M

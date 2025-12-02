@@ -96,7 +96,7 @@ function M.setup()
 		git_status = {
 			window = {
 				position = "right",
-				width = 35,
+				width = 40,
 			},
 		},
 
@@ -108,7 +108,7 @@ function M.setup()
 			-- Keymaps inside neo-tree window
 			mappings = {
 				["<space>"] = "toggle_node",
-				["<cr>"] = "open",
+				-- ["<cr>"] = "open",
 				["o"] = "open",
 				["s"] = "open_split",
 				["v"] = "open_vsplit",

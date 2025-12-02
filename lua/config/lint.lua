@@ -31,11 +31,6 @@ function M.setup()
 			lint.try_lint()
 		end,
 	})
-
-	-- Manual lint keymap
-	vim.keymap.set("n", "<leader>ll", function()
-		lint.try_lint()
-	end, { desc = "Run linting" })
 end
 
 return M
