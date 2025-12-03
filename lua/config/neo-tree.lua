@@ -1,14 +1,24 @@
+-- ================================================================================================
+--  NEO-TREE — FILE EXPLORER SETUP
+--  ABOUT: Highly configurable UI tree for filesystem, buffers, and git status
+-- ================================================================================================
+
 local M = {}
 
 function M.setup()
 	require("neo-tree").setup({
 
-		-- GENERAL SETTINGS --------------------------------------------------------
-		close_if_last_window = true,
-		popup_border_style = "rounded",
-		enable_git_status = true,
-		enable_diagnostics = true,
+		------------------------------------------------------------------------------------------------
+		-- GENERAL SETTINGS
+		------------------------------------------------------------------------------------------------
+		close_if_last_window = true, -- Close neo-tree when it's the only window left
+		popup_border_style = "rounded", -- Borders around floating windows
+		enable_git_status = true, -- Show Git file status
+		enable_diagnostics = true, -- Show LSP diagnostics inside tree
 
+		------------------------------------------------------------------------------------------------
+		-- COMPONENT CONFIGURATION
+		------------------------------------------------------------------------------------------------
 		default_component_configs = {
 
 			indent = {
@@ -56,16 +66,18 @@ function M.setup()
 			},
 		},
 
-		-- FILESYSTEM --------------------------------------------------------------
+		------------------------------------------------------------------------------------------------
+		-- FILESYSTEM VIEW
+		------------------------------------------------------------------------------------------------
 		filesystem = {
-			bind_to_cwd = false, -- CRITICAL: Fixes macOS refresh delays
-			use_libuv_file_watcher = true, -- Real-time updates
+			bind_to_cwd = false, -- Prevents delay on macOS
+			use_libuv_file_watcher = true, -- Real-time FS updates
 			hijack_netrw_behavior = "open_default",
 
 			filtered_items = {
 				visible = false,
 				hide_dotfiles = false,
-				hide_gitignored = false, -- Show gitignored files
+				hide_gitignored = false,
 				hide_by_name = { ".DS_Store" },
 			},
 
@@ -77,14 +89,18 @@ function M.setup()
 			group_empty_dirs = true,
 		},
 
-		-- BUFFERS -----------------------------------------------------------------
+		------------------------------------------------------------------------------------------------
+		-- BUFFERS VIEW
+		------------------------------------------------------------------------------------------------
 		buffers = {
 			follow_current_file = { enabled = true },
 			group_empty_dirs = true,
 			show_unloaded = true,
 		},
 
-		-- GIT STATUS --------------------------------------------------------------
+		------------------------------------------------------------------------------------------------
+		-- GIT STATUS VIEW
+		------------------------------------------------------------------------------------------------
 		git_status = {
 			window = {
 				position = "right",
@@ -92,18 +108,22 @@ function M.setup()
 			},
 		},
 
-		-- CUSTOM COMMANDS ---------------------------------------------------------
+		------------------------------------------------------------------------------------------------
+		-- CUSTOM COMMANDS
+		------------------------------------------------------------------------------------------------
 		commands = {
-			-- Fix: Neo-tree filter not refreshing immediately after <CR>
+			-- Fix: filtering not updating immediately after <CR>
 			filter_on_submit_refresh = function(state)
-				local fs_cmds = require("neo-tree.sources.filesystem.commands")
+				local fs = require("neo-tree.sources.filesystem.commands")
 				local manager = require("neo-tree.sources.manager")
-				fs_cmds.filter_on_submit(state) -- apply filter
-				manager.refresh("filesystem") -- force-refresh view
+				fs.filter_on_submit(state)
+				manager.refresh("filesystem")
 			end,
 		},
 
-		-- WINDOW + MAPPINGS -------------------------------------------------------
+		------------------------------------------------------------------------------------------------
+		-- WINDOW + KEY MAPPINGS
+		------------------------------------------------------------------------------------------------
 		window = {
 			position = "left",
 			width = 40,
@@ -111,22 +131,23 @@ function M.setup()
 			mappings = {
 				["<space>"] = "toggle_node",
 
-				-- OPEN / WINDOW PICKER
-				["<cr>"] = "open_with_window_picker", -- choose window
-				["o"] = "open_with_window_picker", -- consistent UX
+				-- Window picker
+				["<cr>"] = "open_with_window_picker",
+				["o"] = "open_with_window_picker",
 
-				["S"] = "split_with_window_picker", -- select window after split
+				["S"] = "split_with_window_picker",
 				["V"] = "vsplit_with_window_picker",
 
-				-- NORMAL OPENING
+				-- Normal open
 				["s"] = "open_split",
 				["v"] = "open_vsplit",
 				["t"] = "open_tabnew",
 
-				-- FILTERING (patched)
+				-- Filtering
 				["f"] = "filter_on_submit_refresh",
 				["F"] = "clear_filter",
 
+				-- File actions
 				["P"] = "toggle_preview",
 				["<esc>"] = "cancel",
 

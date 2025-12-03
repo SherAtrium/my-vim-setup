@@ -1,13 +1,13 @@
 -- ================================================================================================
--- TITLE : trouble.nvim
--- ABOUT : A pretty diagnostics, references, quickfix and location list viewer for Neovim.
--- LINKS :
---   > github : https://github.com/folke/trouble.nvim
+--  TROUBLE.NVIM
+--  ABOUT : A modern diagnostics list (LSP, quickfix, references, etc.)
+--  LINKS : https://github.com/folke/trouble.nvim
 -- ================================================================================================
 
 return {
 	"folke/trouble.nvim",
-	opts = {}, -- for default options, refer to the configuration section for custom setup.
-	cmd = "Trouble",
-	lazy = true,
+
+	cmd = "Trouble", -- Lazy load on command
+	lazy = true, -- Do not load on startup
+	opts = {}, -- Using defaults (customize here if needed)
 }

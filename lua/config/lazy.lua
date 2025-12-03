@@ -1,50 +1,85 @@
--- Disable netrw BEFORE anything else (required for neo-tree)
+-- ================================================================================================
+--  LAZY.NVIM BOOTSTRAP & CORE SETUP
+--  ABOUT: Bootstrap the lazy.nvim plugin manager and load base configuration modules
+-- ================================================================================================
+
+----------------------------------------------------------------------------------------------------
+-- Disable netrw (REQUIRED by neo-tree)
+-- Must run BEFORE anything happens in runtimepath
+----------------------------------------------------------------------------------------------------
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.g.loaded_netrwSettings = 1
 vim.g.loaded_netrwFileHandlers = 1
 
--- Bootstrap lazy.nvim
+----------------------------------------------------------------------------------------------------
+-- BOOTSTRAP lazy.nvim
+----------------------------------------------------------------------------------------------------
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
----@diagnostic disable-next-line undefined-field (fs_stat)
+
+-- Check if lazy.nvim exists; if not, clone it
+---@diagnostic disable-next-line: undefined-field
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-	local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+	local repo = "https://github.com/folke/lazy.nvim.git"
+	local result = vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"--branch=stable",
+		repo,
+		lazypath,
+	})
+
 	if vim.v.shell_error ~= 0 then
 		vim.api.nvim_echo({
 			{ "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-			{ out, "WarningMsg" },
+			{ result, "WarningMsg" },
 			{ "\nPress any key to exit..." },
 		}, true, {})
 		vim.fn.getchar()
 		os.exit(1)
 	end
 end
+
 vim.opt.rtp:prepend(lazypath)
 
+----------------------------------------------------------------------------------------------------
+-- Load core config files BEFORE plugin initialization
+----------------------------------------------------------------------------------------------------
 require("config.globals")
 require("config.options")
 require("config.keymaps")
 require("config.autocmds")
 
+----------------------------------------------------------------------------------------------------
+-- Folder containing plugin specs
+----------------------------------------------------------------------------------------------------
 local plugins_dir = "plugins"
 
--- Setup lazy.nvim
+----------------------------------------------------------------------------------------------------
+-- LAZY.NVIM CONFIGURATION
+----------------------------------------------------------------------------------------------------
 require("lazy").setup({
 	spec = {
-		-- import your plugins
+		-- Import all plugin modules defined inside /lua/plugins/
 		{ import = plugins_dir },
 	},
-	-- This disabled the default netrw file explorer of vim
+
+	-- Ensure default netrw stays disabled
 	rtp = {
 		disabled_plugins = {
 			"netrw",
 			"netrwPlugin",
 		},
 	},
-	-- Configure any other settings here. See the documentation for more details.
-	-- colorscheme that will be used when installing plugins.
-	install = { colorscheme = { "solarized-osaka" } },
-	-- automatically check for plugin updates
-	checker = { enabled = true },
+
+	-- Auto-install colorscheme on first run
+	install = {
+		colorscheme = { "solarized-osaka" },
+	},
+
+	-- Plugin update checker (background)
+	checker = {
+		enabled = true,
+	},
 })

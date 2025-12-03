@@ -1,20 +1,24 @@
 -- ================================================================================================
--- TITLE : nvim-lspconfig
--- ABOUT : Quickstart configurations for the built-in Neovim LSP client.
--- LINKS :
---   > github                  : https://github.com/neovim/nvim-lspconfig
---   > mason.nvim (dep)        : https://github.com/mason-org/mason.nvim
---   > cmp-nvim-lsp (dep)      : https://github.com/hrsh7th/cmp-nvim-lsp
+--  NVIM-LSPCONFIG
+--  ABOUT : Configures Neovim's built-in LSP client and loads language servers
+--  LINKS :
+--    https://github.com/neovim/nvim-lspconfig
+--    https://github.com/mason-org/mason.nvim
 -- ================================================================================================
 
 return {
 	"neovim/nvim-lspconfig",
+
 	dependencies = {
-		{ "mason-org/mason.nvim", opts = {} }, -- LSP/DAP/Linter installer & manager
-		"hrsh7th/cmp-nvim-lsp", -- nvim-cmp source for LSP-based completion
+		{ "mason-org/mason.nvim", opts = {} }, -- LSP installer & package manager
+		"hrsh7th/cmp-nvim-lsp", -- Recommended LSP capabilities for nvim-cmp
 	},
+
 	config = function()
+		-- Your custom diagnostics signs, inline messages, etc.
 		require("utils.diagnostics").setup()
+
+		-- Your LSP servers configuration (Lua, TS, etc.)
 		require("servers")
 	end,
 }

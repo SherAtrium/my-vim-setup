@@ -1,96 +1,117 @@
 -- ================================================================================================
--- TITLE : NeoVim options
--- ABOUT : Optimized settings for 2024+ Web Development
+--  NEOVIM OPTIONS
+--  ABOUT: Modern, performance-focused configuration ideal for Web Development (2024+)
 -- ================================================================================================
 
 local opt = vim.opt
 
--- BASIC UI
-opt.number = true -- Absolute line numbers
-opt.relativenumber = true -- Relative numbers (best for navigation)
+----------------------------------------------------------------------------------------------------
+-- UI SETTINGS
+----------------------------------------------------------------------------------------------------
+opt.number = true -- Show absolute line numbers
+opt.relativenumber = true -- Relative line numbers improve navigation
 opt.cursorline = true -- Highlight current line
-opt.scrolloff = 8 -- Keep cursor away from edges
-opt.sidescrolloff = 8 -- Horizontal scroll padding
-opt.wrap = false -- Disable line wrap (web dev prefers no wrap)
+opt.scrolloff = 8 -- Keep cursor vertically centered
+opt.sidescrolloff = 8 -- Horizontal padding
+opt.wrap = false -- Disable line wrapping (web dev prefers no wrap)
 
-opt.termguicolors = true -- Full 24-bit colors
-opt.signcolumn = "yes" -- Always show sign column
+opt.termguicolors = true -- Enable 24-bit color
+opt.signcolumn = "yes" -- Always show signcolumn
 
-opt.showmode = false -- Don't show -- INSERT -- (statusline handles this)
-opt.pumheight = 10 -- Completion popup max height
-opt.pumblend = 10 -- Transparent completion popup
+opt.showmode = false -- Hide "-- INSERT --" (statusline handles it)
+
+opt.pumheight = 10 -- Max items in completion menu
+opt.pumblend = 10 -- Slight transparency for completion menu
 opt.winblend = 0 -- No transparency for floating windows
 
-opt.colorcolumn = "100" -- Web dev: show 100 char column
-opt.fillchars = { eob = " " } -- Replaces `~` characters on left/right sides for unused/empty lines
+opt.colorcolumn = "100" -- Visual guide at 100 chars
+opt.fillchars = { eob = " " } -- Hide ~ in empty lines
 
--- INDENTATION / TABS
-opt.tabstop = 2 -- Tab width
-opt.shiftwidth = 2 -- Indent width
-opt.softtabstop = 2 -- Soft tabstop
-opt.expandtab = true -- Convert tabs to spaces
+----------------------------------------------------------------------------------------------------
+-- INDENTATION
+----------------------------------------------------------------------------------------------------
+opt.tabstop = 2
+opt.shiftwidth = 2
+opt.softtabstop = 2
+opt.expandtab = true -- Always use spaces instead of tabs
 
 opt.smartindent = true
 opt.autoindent = true
 
+----------------------------------------------------------------------------------------------------
 -- SEARCH
+----------------------------------------------------------------------------------------------------
 opt.ignorecase = true -- Case-insensitive by default
-opt.smartcase = true -- Case-sensitive if uppercase used
-opt.incsearch = true -- Search as you type
-opt.hlsearch = false -- Don't highlight matches after search
+opt.smartcase = true -- Uppercase makes search case-sensitive
+opt.incsearch = true -- Incremental search
+opt.hlsearch = false -- Don't keep highlight after search
 
--- COMPLETION
-opt.completeopt = { "menuone", "noinsert", "noselect" } -- Recommended for nvim-cmp
-opt.wildmenu = true -- Command-line completion
+----------------------------------------------------------------------------------------------------
+-- COMPLETION / COMMAND LINE
+----------------------------------------------------------------------------------------------------
+opt.completeopt = { "menuone", "noinsert", "noselect" }
+opt.wildmenu = true
 opt.wildmode = "longest:full,full"
 opt.wildignorecase = true
 
--- Faster completion (prevents slowdown with snippets or heavy LSP)
-opt.shortmess:append("c") -- Avoid "match x of y" messages
+opt.shortmess:append("c") -- Reduce completion noise
 
+----------------------------------------------------------------------------------------------------
 -- FILE HANDLING
+----------------------------------------------------------------------------------------------------
 opt.backup = false
 opt.writebackup = false
 opt.swapfile = false
-opt.undofile = true -- Persistent undo
+opt.undofile = true -- Persistent undo history
 
-opt.updatetime = 200 -- Faster CursorHold events (LSP hover, etc)
-opt.timeoutlen = 400 -- Faster keymap responsiveness
-opt.ttimeoutlen = 0 -- Removes delay when pressing <Esc>
+opt.updatetime = 200 -- Affects CursorHold (LSP hover)
+opt.timeoutlen = 400 -- Faster keymap sequence timeout
+opt.ttimeoutlen = 0 -- No delay for ESC key
 
-opt.autoread = true -- Automatically read external file changes
-opt.autowrite = false -- Don’t auto-write unless explicitly triggered
+opt.autoread = true -- Reload files changed outside Nvim
+opt.autowrite = false -- Only write when explicitly saving
 
--- TREESITTER / FOLDING
+----------------------------------------------------------------------------------------------------
+-- FOLDING (Tree-sitter based)
+----------------------------------------------------------------------------------------------------
 opt.foldmethod = "expr"
 opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-opt.foldlevel = 99 -- Open all folds by default
+opt.foldlevel = 99 -- Open everything by default
 
--- DIFF SETTINGS (mini.diff/gitsigns improvements)
+----------------------------------------------------------------------------------------------------
+-- DIFF (Better diffing experience)
+----------------------------------------------------------------------------------------------------
 opt.diffopt:append("vertical")
 opt.diffopt:append("algorithm:patience")
-opt.diffopt:append("linematch:60") -- Smart line matching for diff
+opt.diffopt:append("linematch:60")
 
--- EDITING BEHAVIOR
-opt.backspace = "indent,eol,start" -- Make backspace sane
-opt.mouse = "a" -- Enable mouse
-opt.clipboard = "unnamedplus" -- Use system clipboard
+----------------------------------------------------------------------------------------------------
+-- EDITOR BEHAVIOR
+----------------------------------------------------------------------------------------------------
+opt.backspace = "indent,eol,start"
+opt.mouse = "a"
+opt.clipboard = "unnamedplus"
 
--- Make gf search all subfolders (useful in JS projects)
-opt.path:append("**")
+opt.path:append("**") -- gf recursive search
 
 opt.modifiable = true
 opt.encoding = "UTF-8"
 
+----------------------------------------------------------------------------------------------------
 -- MATCHING / BRACKETS
+----------------------------------------------------------------------------------------------------
 opt.showmatch = true
 opt.matchtime = 2
 
--- FILETYPE-SPECIFIC PERF (big JS repos)
-opt.synmaxcol = 250 -- Don't syntax highlight beyond 250 columns (perf)
-opt.lazyredraw = true -- Faster macros/commands
+----------------------------------------------------------------------------------------------------
+-- PERFORMANCE FOR BIG FILES (important for JS monorepos)
+----------------------------------------------------------------------------------------------------
+opt.synmaxcol = 250
+opt.lazyredraw = true
 
--- UNDO DIR
+----------------------------------------------------------------------------------------------------
+-- UNDO DIRECTORY
+----------------------------------------------------------------------------------------------------
 local undodir = vim.fn.expand("~/.local/share/nvim/undodir")
 opt.undodir = undodir
 
@@ -98,6 +119,8 @@ if vim.fn.isdirectory(undodir) == 0 then
 	vim.fn.mkdir(undodir, "p")
 end
 
--- SPLITS
+----------------------------------------------------------------------------------------------------
+-- SPLIT BEHAVIOR
+----------------------------------------------------------------------------------------------------
 opt.splitbelow = true
 opt.splitright = true

@@ -1,50 +1,70 @@
 -- ================================================================================================
--- TITLE : nvim-treesitter
--- ABOUT : Treesitter configurations and abstraction layer for Neovim.
--- LINKS :
---   > github : https://github.com/nvim-treesitter/nvim-treesitter
+--  NVIM-TREESITTER
+--  ABOUT : AST-based syntax highlighting, indentation, and code-aware selections
+--  LINKS : https://github.com/nvim-treesitter/nvim-treesitter
 -- ================================================================================================
 
 return {
 	"nvim-treesitter/nvim-treesitter",
-	build = ":TSUpdate",
-	event = { "BufReadPost", "BufNewFile" },
-	lazy = false,
+
+	build = ":TSUpdate", -- auto-update parsers
+	event = { "BufReadPost", "BufNewFile" }, -- load lazily
+	lazy = false, -- ensure it loads early
+
 	config = function()
 		require("nvim-treesitter.configs").setup({
-			-- language parsers that MUST be installed
+
+			--------------------------------------------------------------------------------------------
+			-- Essential parsers
+			--------------------------------------------------------------------------------------------
 			ensure_installed = {
-        "html",
-        "css",
-        "scss",
-        "styled",
-        "javascript",
-        "typescript",
-        "tsx",
-        "graphql",
-        "json",
-        "sql",
+				-- Web
+				"html",
+				"css",
+				"scss",
+				"styled",
+				"javascript",
+				"typescript",
+				"tsx",
+				"svelte",
+				"vue",
+				"graphql",
+				"json",
+				"yaml",
+
+				-- Backend / Other
 				"bash",
 				"c",
 				"cpp",
 				"dockerfile",
 				"go",
 				"lua",
-				"markdown",
-				"markdown_inline",
 				"python",
 				"rust",
-				"svelte",
-				"vue",
-				"yaml",
+				"markdown",
+				"markdown_inline",
+				"sql",
 			},
-			auto_install = true, -- auto-install any other parsers on opening new language files
-			sync_install = false,
+
+			auto_install = true, -- auto-install missing parsers
+			sync_install = false, -- async installation
+
+			--------------------------------------------------------------------------------------------
+			-- Highlighting
+			--------------------------------------------------------------------------------------------
 			highlight = {
 				enable = true,
 				additional_vim_regex_highlighting = false,
 			},
+
+			--------------------------------------------------------------------------------------------
+			-- Indentation
+			--------------------------------------------------------------------------------------------
 			indent = { enable = true },
+
+			--------------------------------------------------------------------------------------------
+			-- Incremental Selection (TS-based text objects)
+			--------------------------------------------------------------------------------------------
 			incremental_selection = {
 				enable = true,
 				keymaps = {
