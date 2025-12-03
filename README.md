@@ -12,16 +12,16 @@ All keymaps are structured logically, grouped by feature, and follow a consisten
 
 # 📚 Table of Contents
 
-1. [General Editing](#general-editing)
-2. [Window & Buffer Management](#window--buffer-management)
-3. [Neo-tree File Explorer](#neo-tree-file-explorer)
-4. [FZF-Lua](#fzf-lua)
-5. [Trouble Diagnostics](#trouble-diagnostics)
-6. [Formatting & Linting](#formatting--linting)
-7. [Native LSP Keymaps (`<leader>l…`)](#native-lsp-keymaps-leaderl)
-8. [FZF-LSP (`<leader>lF…`)](#fzf-lua-lsp-integration-leaderlf)
-9. [Mini.nvim Keymaps](#mininvim-keymaps)
-10. [Misc Utilities](#misc-utilities)
+1. [General Editing](#-general-editing)
+2. [Window & Buffer Management](#-window--buffer-management)
+3. [Neo-tree File Explorer](#-neo-tree-file-explorer)
+4. [FZF-Lua](#-fzf-lua)
+5. [Trouble Diagnostics](#-trouble-diagnostics)
+6. [Formatting & Linting](#-formatting--linting)
+7. [Native LSP Keymaps (`<leader>l…`)](#-native-lsp-keymaps-leaderl)
+8. [FZF-LSP (`<leader>lF…`)](#-fzf-lua-lsp-integration-leaderlf)
+9. [Mini.nvim Keymaps](#-mininvim-keymaps)
+10. [Misc Utilities](#-misc-utilities)
 
 ---
 
