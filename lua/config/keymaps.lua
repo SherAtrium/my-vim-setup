@@ -39,9 +39,6 @@ map("n", "<Down>", "<C-w>5-", { desc = "Increase window height" })
 map("v", "<", "<gv", { desc = "Indent left and reselect" })
 map("v", ">", ">gv", { desc = "Indent right and reselect" })
 
--- Diagnostics under cursor
-map("n", "<leader>d", vim.diagnostic.open_float, opts)
-
 -- Faster quit
 map("n", "qq", "<cmd>q!<CR>", opts)
 
@@ -157,17 +154,8 @@ map("n", "<leader>lFs", "<cmd>FzfLua lsp_document_symbols<CR>", { desc = "Docume
 map("n", "<leader>lFw", "<cmd>FzfLua lsp_workspace_symbols<CR>", { desc = "Workspace Symbols" })
 
 -- =============================================================================
---  MINI.NVIM — COMMENT / SURROUND / MOVE / DIFF
+--  MINI.NVIM — SURROUND / MOVE / DIFF
 -- =============================================================================
-
--- Comment
-map({ "n", "v" }, "gc", function()
-	require("mini.comment").operator()
-end, { desc = "Comment" })
-
-map("n", "gcc", function()
-	require("mini.comment").operator_line()
-end, { desc = "Comment Line" })
 
 -- Surround
 map("n", "<leader>sa", function()

@@ -147,10 +147,11 @@ All keymaps are structured logically, grouped by feature, and follow a consisten
 
 ### Commenting
 
-| Key   | Action           |
-| ----- | ---------------- |
-| `gc`  | Comment operator |
-| `gcc` | Comment line     |
+| Key             | Action                                    |
+| --------------- | ----------------------------------------- |
+| `<C-/>`         | Toggle line/block comment (normal/visual) |
+| `gc`            | Comment operator (motion)                 |
+| `gc` textobject | Comment textobject                        |
 
 ### Surround
 

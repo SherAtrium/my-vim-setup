@@ -3,24 +3,21 @@ local M = {}
 function M.setup()
 	require("neo-tree").setup({
 
-		-- GENERAL SETTINGS
-		close_if_last_window = true, -- Close neo-tree if it's the last window
-		popup_border_style = "rounded", -- Nice rounded borders
-		enable_git_status = true, -- Show git signs/icons
-		enable_diagnostics = true, -- Show LSP diagnostics in tree
+		-- GENERAL SETTINGS --------------------------------------------------------
+		close_if_last_window = true,
+		popup_border_style = "rounded",
+		enable_git_status = true,
+		enable_diagnostics = true,
 
-		-- DEFAULT COMPONENT CONFIGS (ICONS, GIT, DIAGNOSTICS, ETC)
 		default_component_configs = {
 
-			-- INDENTATION
 			indent = {
 				padding = 1,
-				with_expanders = true, -- Show expand arrows
-				expander_collapsed = "", -- Closed folder arrow
-				expander_expanded = "", -- Open folder arrow
+				with_expanders = true,
+				expander_collapsed = "",
+				expander_expanded = "",
 			},
 
-			-- ICONS (FILE, FOLDER)
 			icon = {
 				folder_closed = "",
 				folder_open = "",
@@ -29,7 +26,6 @@ function M.setup()
 				highlight = "NeoTreeFileIcon",
 			},
 
-			-- GIT STATUS ICONS & COLORS
 			git_status = {
 				symbols = {
 					added = "✚",
@@ -44,7 +40,6 @@ function M.setup()
 				},
 			},
 
-			-- DIAGNOSTICS ICONS
 			diagnostics = {
 				symbols = {
 					hint = "󰌵",
@@ -61,38 +56,35 @@ function M.setup()
 			},
 		},
 
-		-- FILESYSTEM SETTINGS (MAIN TREE)
+		-- FILESYSTEM --------------------------------------------------------------
 		filesystem = {
+			bind_to_cwd = false, -- CRITICAL: Fixes macOS refresh delays
+			use_libuv_file_watcher = true, -- Real-time updates
+			hijack_netrw_behavior = "open_default",
+
 			filtered_items = {
-				visible = false, -- Hide filtered items by default
-				hide_dotfiles = false, -- Keep dotfiles visible (like .env)
-				hide_gitignored = false, -- Hide files ignored by .gitignore
-				hide_by_name = { ".DS_Store" }, --Hide specific folders
+				visible = false,
+				hide_dotfiles = false,
+				hide_gitignored = false, -- Show gitignored files
+				hide_by_name = { ".DS_Store" },
 			},
 
-			-- UPDATED API → must be a table
 			follow_current_file = {
-				enabled = true, -- Auto focus file in tree when opened
+				enabled = true,
 				leave_dirs_open = false,
 			},
 
-			group_empty_dirs = true, -- Collapse nested empty directories
-			use_libuv_file_watcher = true, -- Real-time update without refreshing
-
-			hijack_netrw_behavior = "open_default", -- Replace netrw completely
+			group_empty_dirs = true,
 		},
 
-		-- BUFFERS VIEW (OPEN FILES)
+		-- BUFFERS -----------------------------------------------------------------
 		buffers = {
-			-- UPDATED API → must be a table
-			follow_current_file = {
-				enabled = true, -- Auto-highlight active buffer
-			},
+			follow_current_file = { enabled = true },
 			group_empty_dirs = true,
 			show_unloaded = true,
 		},
 
-		-- GIT STATUS VIEW
+		-- GIT STATUS --------------------------------------------------------------
 		git_status = {
 			window = {
 				position = "right",
@@ -100,22 +92,43 @@ function M.setup()
 			},
 		},
 
-		-- WINDOW & UI SETTINGS
+		-- CUSTOM COMMANDS ---------------------------------------------------------
+		commands = {
+			-- Fix: Neo-tree filter not refreshing immediately after <CR>
+			filter_on_submit_refresh = function(state)
+				local fs_cmds = require("neo-tree.sources.filesystem.commands")
+				local manager = require("neo-tree.sources.manager")
+				fs_cmds.filter_on_submit(state) -- apply filter
+				manager.refresh("filesystem") -- force-refresh view
+			end,
+		},
+
+		-- WINDOW + MAPPINGS -------------------------------------------------------
 		window = {
 			position = "left",
 			width = 40,
 
-			-- Keymaps inside neo-tree window
 			mappings = {
 				["<space>"] = "toggle_node",
-				-- ["<cr>"] = "open",
-				["o"] = "open",
+
+				-- OPEN / WINDOW PICKER
+				["<cr>"] = "open_with_window_picker", -- choose window
+				["o"] = "open_with_window_picker", -- consistent UX
+
+				["S"] = "split_with_window_picker", -- select window after split
+				["V"] = "vsplit_with_window_picker",
+
+				-- NORMAL OPENING
 				["s"] = "open_split",
 				["v"] = "open_vsplit",
 				["t"] = "open_tabnew",
 
-				["P"] = "toggle_preview", -- preview in floating window
-				["<esc>"] = "cancel", -- close preview window
+				-- FILTERING (patched)
+				["f"] = "filter_on_submit_refresh",
+				["F"] = "clear_filter",
+
+				["P"] = "toggle_preview",
+				["<esc>"] = "cancel",
 
 				["a"] = { "add", config = { show_path = "relative" } },
 				["A"] = "add_directory",
