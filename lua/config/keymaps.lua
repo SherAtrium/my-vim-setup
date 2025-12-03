@@ -40,7 +40,7 @@ map("v", "<", "<gv", { desc = "Indent left and reselect" })
 map("v", ">", ">gv", { desc = "Indent right and reselect" })
 
 -- Diagnostics under cursor
-map("n", "<C-w>d", vim.diagnostic.open_float, opts)
+map("n", "<leader>d", vim.diagnostic.open_float, opts)
 
 -- Faster quit
 map("n", "qq", "<cmd>q!<CR>", opts)
@@ -61,9 +61,10 @@ map("n", "<leader>sv", "<cmd>vsplit<CR>", { desc = "Split window vertically" })
 --  FILE EXPLORER — NEO-TREE
 -- ========================================================================
 
-map("n", "<leader>e", "<cmd>Neotree filesystem reveal left<CR>", { desc = "File Explorer" })
-map("n", "<leader>b", "<cmd>Neotree buffers reveal float<CR>", { desc = "Buffers Tree" })
-map("n", "<leader>g", "<cmd>Neotree git_status reveal float<CR>", { desc = "Git Status Tree" })
+map("n", "<leader>e", "<cmd>Neotree toggle filesystem reveal left<CR>", { desc = "File Explorer" })
+map("n", "<leader>fe", "<cmd>Neotree toggle filesystem reveal float<CR>", { desc = "File Explorer" })
+map("n", "<leader>b", "<cmd>Neotree buffers toggle reveal float<CR>", { desc = "Buffers Tree" })
+map("n", "<leader>g", "<cmd>Neotree git_status toggle reveal float<CR>", { desc = "Git Status Tree" })
 
 -- =============================================================================
 --  FZF-LUA — FILES, GREP, SYMBOLS, DIAGNOSTICS
@@ -161,58 +162,58 @@ map("n", "<leader>lFw", "<cmd>FzfLua lsp_workspace_symbols<CR>", { desc = "Works
 
 -- Comment
 map({ "n", "v" }, "gc", function()
-  require("mini.comment").operator()
+	require("mini.comment").operator()
 end, { desc = "Comment" })
 
 map("n", "gcc", function()
-  require("mini.comment").operator_line()
+	require("mini.comment").operator_line()
 end, { desc = "Comment Line" })
 
 -- Surround
 map("n", "<leader>sa", function()
-  require("mini.surround").add()
+	require("mini.surround").add()
 end, { desc = "Add Surround" })
 
 map("n", "<leader>sd", function()
-  require("mini.surround").delete()
+	require("mini.surround").delete()
 end, { desc = "Delete Surround" })
 
 map("n", "<leader>sr", function()
-  require("mini.surround").replace()
+	require("mini.surround").replace()
 end, { desc = "Replace Surround" })
 
 map("n", "<leader>sf", function()
-  require("mini.surround").find()
+	require("mini.surround").find()
 end, { desc = "Find Surround" })
 
 -- Move lines
 map("n", "<A-j>", function()
-  require("mini.move").move_line("down")
+	require("mini.move").move_line("down")
 end, { desc = "Move Line Down" })
 
 map("n", "<A-k>", function()
-  require("mini.move").move_line("up")
+	require("mini.move").move_line("up")
 end, { desc = "Move Line Up" })
 
 -- Diff hunks
 map("n", "<leader>dp", function()
-  require("mini.diff").toggle_preview()
+	require("mini.diff").toggle_preview()
 end, { desc = "Preview Hunk" })
 
 map("n", "<leader>dr", function()
-  require("mini.diff").revert_hunk()
+	require("mini.diff").revert_hunk()
 end, { desc = "Revert Hunk" })
 
 map("n", "<leader>da", function()
-  require("mini.diff").apply_hunk()
+	require("mini.diff").apply_hunk()
 end, { desc = "Apply Hunk" })
 
 map("n", "]d", function()
-  require("mini.diff").goto_next()
+	require("mini.diff").goto_next()
 end, { desc = "Next Hunk" })
 
 map("n", "[d", function()
-  require("mini.diff").goto_prev()
+	require("mini.diff").goto_prev()
 end, { desc = "Previous Hunk" })
 
 -- =============================================================================

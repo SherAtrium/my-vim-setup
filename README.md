@@ -36,7 +36,6 @@ All keymaps are structured logically, grouped by feature, and follow a consisten
 | `<Right>` | Decrease window width             |
 | `<Up>`    | Decrease window height            |
 | `<Down>`  | Increase window height            |
-| `<C-w>d`  | Diagnostics float                 |
 | `qq`      | Quit without saving               |
 
 ### Visual Mode
@@ -63,11 +62,12 @@ All keymaps are structured logically, grouped by feature, and follow a consisten
 
 # 📁 Neo-tree File Explorer
 
-| Key         | Action          |
-| ----------- | --------------- |
-| `<leader>e` | File explorer   |
-| `<leader>b` | Buffers tree    |
-| `<leader>g` | Git status tree |
+| Key          | Action              |
+| ------------ | ------------------- |
+| `<leader>e`  | File explorer       |
+| `<leader>fe` | File explorer float |
+| `<leader>b`  | Buffers tree        |
+| `<leader>g`  | Git status tree     |
 
 ---
 
@@ -90,6 +90,7 @@ All keymaps are structured logically, grouped by feature, and follow a consisten
 
 | Key          | Action                       |
 | ------------ | ---------------------------- |
+| `<leader>d`  | Diagnostics float            |
 | `<leader>xx` | Workspace diagnostics        |
 | `<leader>xX` | Buffer diagnostics           |
 | `<leader>xQ` | Quickfix list                |
