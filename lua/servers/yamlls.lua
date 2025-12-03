@@ -1,14 +1,14 @@
 -- ================================================================================================
--- TITLE : yamlls (YAML Language Server) LSP Setup
--- LINKS :
---   > github: https://github.com/redhat-developer/yaml-language-server
+-- TITLE : yamlls (YAML Language Server)
+-- ABOUT : YAML validation + schema associations
+-- LINKS : https://github.com/redhat-developer/yaml-language-server
 -- ================================================================================================
 
---- @param capabilities table LSP client capabilities (typically from nvim-cmp or similar)
---- @return nil
+--- @param capabilities table LSP client capabilities
 return function(capabilities)
-	vim.lsp.config('yamlls', {
+	vim.lsp.config("yamlls", {
 		capabilities = capabilities,
+
 		settings = {
 			yaml = {
 				schemas = {
@@ -16,11 +16,10 @@ return function(capabilities)
 					["https://json.schemastore.org/docker-compose.json"] = "docker-compose*.yml",
 				},
 				validate = true,
-				format = {
-					enable = true,
-				},
+				format = { enable = true },
 			},
 		},
+
 		filetypes = { "yaml" },
 	})
 end

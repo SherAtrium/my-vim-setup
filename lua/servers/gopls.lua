@@ -1,13 +1,12 @@
 -- ================================================================================================
--- TITLE : gopls (Golang Language Server) LSP Setup
--- LINKS :
---   > github: https://github.com/golang/tools/tree/master/gopls
+-- TITLE : gopls (Go Language Server)
+-- ABOUT : Go-specific completion, formatting, diagnostics
+-- LINKS : https://github.com/golang/tools/tree/master/gopls
 -- ================================================================================================
 
---- @param capabilities table LSP client capabilities (typically from nvim-cmp or similar)
---- @return nil
+--- @param capabilities table LSP client capabilities
 return function(capabilities)
-	vim.lsp.config('gopls', {
+	vim.lsp.config("gopls", {
 		capabilities = capabilities,
 		filetypes = { "go" },
 	})

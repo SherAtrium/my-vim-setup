@@ -43,24 +43,6 @@ return {
 				up = "<C-k>",
 			},
 		},
-
-		keys = {
-			{ "<A-j>", desc = "Move Line Down" },
-			{ "<A-k>", desc = "Move Line Up" },
-		},
-
-		config = function(_, opts)
-			require("mini.move").setup(opts)
-
-			-- Move single line
-			vim.keymap.set("n", "<A-j>", function()
-				require("mini.move").move_line("down")
-			end, { desc = "Move Line Down" })
-
-			vim.keymap.set("n", "<A-k>", function()
-				require("mini.move").move_line("up")
-			end, { desc = "Move Line Up" })
-		end,
 	},
 
 	----------------------------------------------------------------------------------------------------
@@ -71,22 +53,17 @@ return {
 		version = "*",
 		opts = {},
 
-		keys = {
-			{ "<leader>sa", desc = "Add Surround" },
-			{ "<leader>sd", desc = "Delete Surround" },
-			{ "<leader>sr", desc = "Replace Surround" },
-			{ "<leader>sf", desc = "Find Surround" },
+		mappings = {
+			add = "sa", -- Add surrounding in Normal and Visual modes
+			delete = "sd", -- Delete surrounding
+			find = "sf", -- Find surrounding (to the right)
+			find_left = "sF", -- Find surrounding (to the left)
+			highlight = "sh", -- Highlight surrounding
+			replace = "sr", -- Replace surrounding
+
+			suffix_last = "l", -- Suffix to search with "prev" method
+			suffix_next = "n", -- Suffix to search with "next" method
 		},
-
-		config = function(_, opts)
-			local surround = require("mini.surround")
-			surround.setup(opts)
-
-			vim.keymap.set("n", "<leader>sa", surround.add, { desc = "Add Surround" })
-			vim.keymap.set("n", "<leader>sd", surround.delete, { desc = "Delete Surround" })
-			vim.keymap.set("n", "<leader>sr", surround.replace, { desc = "Replace Surround" })
-			vim.keymap.set("n", "<leader>sf", surround.find, { desc = "Find Surround" })
-		end,
 	},
 
 	----------------------------------------------------------------------------------------------------
@@ -117,23 +94,21 @@ return {
 			},
 		},
 
-		keys = {
-			{ "<leader>dp", desc = "Preview Hunk" },
-			{ "<leader>dr", desc = "Revert Hunk" },
-			{ "<leader>da", desc = "Apply Hunk" },
-			{ "]d", desc = "Next Hunk" },
-			{ "[d", desc = "Prev Hunk" },
+		mappings = {
+			-- Apply hunks inside a visual/operator region
+			apply = "gh",
+			-- Reset hunks inside a visual/operator region
+			reset = "gH",
+
+			-- Hunk range textobject to be used inside operator
+			-- Works also in Visual mode if mapping differs from apply and reset
+			textobject = "gh",
+
+			-- Go to hunk range in corresponding direction
+			goto_first = "[H",
+			goto_prev = "[h",
+			goto_next = "]h",
+			goto_last = "]H",
 		},
-
-		config = function(_, opts)
-			local diff = require("mini.diff")
-			diff.setup(opts)
-
-			vim.keymap.set("n", "<leader>dp", diff.toggle_preview, { desc = "Preview Hunk" })
-			vim.keymap.set("n", "<leader>dr", diff.revert_hunk, { desc = "Revert Hunk" })
-			vim.keymap.set("n", "<leader>da", diff.apply_hunk, { desc = "Apply Hunk" })
-			vim.keymap.set("n", "]d", diff.goto_next, { desc = "Next Hunk" })
-			vim.keymap.set("n", "[d", diff.goto_prev, { desc = "Prev Hunk" })
-		end,
 	},
 }

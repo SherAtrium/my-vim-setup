@@ -1,15 +1,14 @@
 -- ================================================================================================
--- TITLE : emmet_ls (Emmet Language Server) LSP Setup
--- ABOUT : Configures Emmet Language Server for web-related (e.g. TS/JS, CSS, Sass, Svelte, Vue)
--- LINKS :
---   > github: https://github.com/aca/emmet-ls
+-- TITLE : emmet_ls (Emmet Language Server)
+-- ABOUT : Provides Emmet abbreviation expansions for modern web stacks
+-- LINKS : https://github.com/aca/emmet-ls
 -- ================================================================================================
 
---- @param capabilities table LSP client capabilities (typically from nvim-cmp or similar)
---- @return nil
+--- @param capabilities table LSP client capabilities
 return function(capabilities)
-	vim.lsp.config('emmet_ls', {
+	vim.lsp.config("emmet_ls", {
 		capabilities = capabilities,
+
 		filetypes = {
 			"typescript",
 			"javascript",

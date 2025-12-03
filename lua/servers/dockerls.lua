@@ -1,11 +1,10 @@
 -- ================================================================================================
--- TITLE : dockerls (Docker Language Server) LSP Setup
--- LINKS :
---   > github: https://github.com/rcjsuen/dockerfile-language-server-nodejs
+-- TITLE : dockerls (Dockerfile Language Server)
+-- ABOUT : Provides syntax checking and completions for Dockerfiles
+-- LINKS : https://github.com/rcjsuen/dockerfile-language-server-nodejs
 -- ================================================================================================
 
---- @param capabilities table LSP client capabilities (typically from nvim-cmp or similar)
---- @return nil
+--- @param capabilities table LSP client capabilities
 return function(capabilities)
 	vim.lsp.config("dockerls", {
 		capabilities = capabilities,

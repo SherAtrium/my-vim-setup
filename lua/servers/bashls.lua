@@ -1,13 +1,12 @@
 -- ================================================================================================
--- TITLE : bashls (Bash Language Server) LSP Setup
--- LINKS :
---   > github: https://github.com/bash-lsp/bash-language-server
+-- TITLE : bashls (Bash Language Server)
+-- ABOUT : Provides IntelliSense, diagnostics, and formatting for shell scripts
+-- LINKS : https://github.com/bash-lsp/bash-language-server
 -- ================================================================================================
 
---- @param capabilities table LSP client capabilities (typically from nvim-cmp or similar)
---- @return nil
+--- @param capabilities table LSP client capabilities
 return function(capabilities)
-	vim.lsp.config('bashls',{
+	vim.lsp.config("bashls", {
 		capabilities = capabilities,
 		filetypes = { "sh", "bash", "zsh" },
 	})

@@ -1,14 +1,14 @@
 -- ================================================================================================
--- TITLE : pyright (Python Language Server) LSP Setup
--- LINKS :
---   > github: https://github.com/microsoft/pyright
+-- TITLE : pyright (Python Language Server)
+-- ABOUT : Type checking, diagnostics, auto-imports for Python
+-- LINKS : https://github.com/microsoft/pyright
 -- ================================================================================================
 
---- @param capabilities table LSP client capabilities (typically from nvim-cmp or similar)
---- @return nil This function doesn't return a value, it configures the LSP server
+--- @param capabilities table LSP client capabilities
 return function(capabilities)
-	vim.lsp.config('pyright', {
+	vim.lsp.config("pyright", {
 		capabilities = capabilities,
+
 		settings = {
 			pyright = {
 				disableOrganizeImports = false,
