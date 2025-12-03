@@ -8,9 +8,7 @@ All keymaps are structured logically, grouped by feature, and follow a consisten
 - Conflict-free minimalistic design
 - which-key–friendly descriptions
 
----
-
-# 📚 Table of Contents
+## 📚 Table of Contents
 
 1. [General Editing](#-general-editing)
 2. [Window & Buffer Management](#-window--buffer-management)
@@ -23,9 +21,7 @@ All keymaps are structured logically, grouped by feature, and follow a consisten
 9. [Mini.nvim Keymaps](#-mininvim-keymaps)
 10. [Misc Utilities](#-misc-utilities)
 
----
-
-# 🎯 General Editing
+## 🎯 General Editing
 
 | Key       | Action                            |
 | --------- | --------------------------------- |
@@ -45,9 +41,7 @@ All keymaps are structured logically, grouped by feature, and follow a consisten
 | `<` | Indent left & reselect  |
 | `>` | Indent right & reselect |
 
----
-
-# 🪟 Window & Buffer Management
+## 🪟 Window & Buffer Management
 
 | Key          | Action             |
 | ------------ | ------------------ |
@@ -58,9 +52,7 @@ All keymaps are structured logically, grouped by feature, and follow a consisten
 | `<leader>sh` | Split horizontally |
 | `<leader>sv` | Split vertically   |
 
----
-
-# 📁 Neo-tree File Explorer
+## 📁 Neo-tree File Explorer
 
 | Key          | Action              |
 | ------------ | ------------------- |
@@ -69,9 +61,7 @@ All keymaps are structured logically, grouped by feature, and follow a consisten
 | `<leader>b`  | Buffers tree        |
 | `<leader>g`  | Git status tree     |
 
----
-
-# 🔍 FZF-Lua
+## 🔍 FZF-Lua
 
 | Key          | Action                |
 | ------------ | --------------------- |
@@ -84,9 +74,7 @@ All keymaps are structured logically, grouped by feature, and follow a consisten
 | `<leader>fx` | Document diagnostics  |
 | `<leader>fX` | Workspace diagnostics |
 
----
-
-# 🚨 Trouble Diagnostics
+## 🚨 Trouble Diagnostics
 
 | Key          | Action                       |
 | ------------ | ---------------------------- |
@@ -98,18 +86,14 @@ All keymaps are structured logically, grouped by feature, and follow a consisten
 | `<leader>cl` | LSP definitions & references |
 | `<leader>cs` | LSP symbols                  |
 
----
-
-# ✨ Formatting & Linting
+## ✨ Formatting & Linting
 
 | Key          | Action        |
 | ------------ | ------------- |
 | `<leader>cf` | Format buffer |
 | `<leader>ll` | Lint buffer   |
 
----
-
-# 🧠 Native LSP Keymaps (`<leader>l…`)
+## 🧠 Native LSP Keymaps (`<leader>l…`)
 
 ### Hover
 
@@ -148,9 +132,7 @@ All keymaps are structured logically, grouped by feature, and follow a consisten
 | ------------- | ------------------------- |
 | `<leader>loi` | Organize imports + format |
 
----
-
-# 🔎 FZF-Lua LSP Integration (`<leader>lF…`)
+## 🔎 FZF-Lua LSP Integration (`<leader>lF…`)
 
 | Key           | Action                   |
 | ------------- | ------------------------ |
@@ -161,9 +143,7 @@ All keymaps are structured logically, grouped by feature, and follow a consisten
 | `<leader>lFs` | Document symbols         |
 | `<leader>lFw` | Workspace symbols        |
 
----
-
-# 🧩 Mini.nvim Keymaps
+## 🧩 Mini.nvim Keymaps
 
 ### Commenting
 
@@ -198,9 +178,7 @@ All keymaps are structured logically, grouped by feature, and follow a consisten
 | `]d`         | Next hunk     |
 | `[d`         | Previous hunk |
 
----
-
-# 🔧 Misc Utilities
+## 🔧 Misc Utilities
 
 | Key         | Action                |
 | ----------- | --------------------- |
