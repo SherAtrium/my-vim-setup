@@ -4,6 +4,8 @@ A modern, fast, modular Neovim configuration optimized for **Web Development**, 
 
 This repository contains my personal Neovim configuration — clean, structured, stable, and built with a strong focus on **performance**, **clarity**, and **developer experience**.
 
+![alt text](https://github.com/SherAtrium/my-vim-setup/assets/Example.png)
+
 ---
 
 ## 🔑 Keymap Philosophy & Structure
