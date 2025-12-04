@@ -23,5 +23,8 @@ return {
 
 		-- Make Neo-tree also transparent
 		require("config.neo-tree_transparent").setup()
+
+		-- Make Gitsigns Blame text changes
+		require("config.git-blame_text").setup()
 	end,
 }
