@@ -15,6 +15,9 @@ return {
 			hint = "floating-big-letter", -- giant letter in the middle of each window
 			show_prompt = true,
 
+			-- Use alphabetical window labels (A, B, C, ...)
+			selection_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+
 			-- Filter out unwanted windows from the picker
 			filter_rules = {
 				bo = {

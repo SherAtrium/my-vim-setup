@@ -31,13 +31,13 @@ M.on_attach = function(event)
 
 	------------------------------------------------------------------------------------------------
 	-- ORGANIZE IMPORTS (if supported by server)
-	-- Creates mapping: <leader>loi
+	-- Creates mapping: <leader>coi
 	-- Performs:
 	--   1. LSP codeAction("source.organizeImports")
 	--   2. Formats afterwards to maintain consistent code style
 	------------------------------------------------------------------------------------------------
 	if client:supports_method("textDocument/codeAction", bufnr) then
-		keymap("n", "<leader>loi", function()
+		keymap("n", "<leader>coi", function()
 			vim.lsp.buf.code_action({
 				context = {
 					only = { "source.organizeImports" },
