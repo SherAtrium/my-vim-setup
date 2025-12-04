@@ -122,3 +122,72 @@ A cleaner alternative to many plugins:
 - Clean and consistent keymap architecture
 
 ---
+
+## 🧰 Automatic Tool Installation (Mason Tool Installer)
+
+This Neovim configuration includes **automatic installation** of all required:
+
+- **Language Servers (LSP)**
+- **Formatters**
+- **Linters**
+- **Debug Adapters (DAP)**
+
+Powered by:
+
+👉 **mason-tool-installer.nvim**
+
+No more manually running `:Mason` or installing tools on each machine —  
+just clone your config, open Neovim, and everything installs automatically.
+
+### 📦 Tools Installed Automatically
+
+**LSP Servers**
+
+- bash-language-server
+- clangd
+- dockerfile-language-server
+- emmet-ls
+- eslint_d
+- gopls
+- json-lsp
+- lua-language-server
+- pyright
+- tailwindcss-language-server
+- typescript-language-server
+- yaml-language-server
+
+**Formatters**
+
+- black
+- clang-format
+- gofumpt
+- prettierd
+- shfmt
+- stylua
+
+**Linters**
+
+- cpplint
+- fixjson
+- flake8
+- hadolint
+- revive
+- shellcheck
+
+**Debugging**
+
+- codelldb
+
+### 🛠 How It Works
+
+When you start Neovim, `mason-tool-installer` automatically:
+
+- Installs missing tools
+- Ensures consistency across all machines
+- Keeps your development environment reproducible
+
+The configuration lives here:
+
+```text
+lua/plugins/mason-tool-installer.lua
+```
