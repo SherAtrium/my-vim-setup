@@ -18,13 +18,6 @@ return {
 	end,
 
 	config = function()
-		-- Apply the colorscheme
 		vim.cmd("colorscheme solarized-osaka")
-
-		-- Make Neo-tree also transparent
-		require("config.neo-tree_transparent").setup()
-
-		-- Make Gitsigns Blame text changes
-		require("config.git-blame_text").setup()
 	end,
 }

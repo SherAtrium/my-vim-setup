@@ -1,6 +1,6 @@
 # 📄 Keymaps Overview
 
-This document provides a complete overview of keybindings used in **SherAtrium’s Neovim**.  
+This document provides a complete overview of keybindings used in **SherAtrium’s Neovim**.
 The layout follows a clean and scalable prefix architecture designed for clarity and zero conflicts.
 
 ---
@@ -22,7 +22,7 @@ The layout follows a clean and scalable prefix architecture designed for clarity
 | **`s`** | Sessions / System                       |
 | **`h`** | Help                                    |
 
-`Space` is `<leader>`.  
+`Space` is `<leader>`.
 Keymaps are grouped logically by their domain.
 
 ---

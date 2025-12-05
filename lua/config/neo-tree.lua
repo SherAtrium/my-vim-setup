@@ -109,19 +109,6 @@ function M.setup()
 		},
 
 		------------------------------------------------------------------------------------------------
-		-- CUSTOM COMMANDS
-		------------------------------------------------------------------------------------------------
-		commands = {
-			-- Fix: filtering not updating immediately after <CR>
-			filter_on_submit_refresh = function(state)
-				local fs = require("neo-tree.sources.filesystem.commands")
-				local manager = require("neo-tree.sources.manager")
-				fs.filter_on_submit(state)
-				manager.refresh("filesystem")
-			end,
-		},
-
-		------------------------------------------------------------------------------------------------
 		-- WINDOW + KEY MAPPINGS
 		------------------------------------------------------------------------------------------------
 		window = {
@@ -164,6 +151,17 @@ function M.setup()
 				["?"] = "show_help",
 			},
 		},
+	})
+
+	-- Making neo-tree background transparent
+	vim.api.nvim_set_hl(0, "NeoTreeNormal", { bg = "none" })
+	vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { bg = "none" })
+	vim.api.nvim_set_hl(0, "NeoTreeEndOfBuffer", { bg = "none" })
+
+	-- Subtle separator line
+	vim.api.nvim_set_hl(0, "NeoTreeWinSeparator", {
+		fg = "#3a3a3a",
+		bg = "none",
 	})
 end
 
