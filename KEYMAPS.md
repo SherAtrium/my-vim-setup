@@ -134,11 +134,13 @@ Keymaps are grouped logically by their domain.
 | `<leader>gcn` | Next conflict     |
 | `<leader>gcp` | Previous conflict |
 
-## 🧭 Neogit
+### 🐙 Lazygit — Git TUI Interface
 
-| Key          | Action      |
-| ------------ | ----------- |
-| `<leader>gn` | Open Neogit |
+| Key          | Action                    |
+| ------------ | ------------------------- |
+| `<leader>gg` | Open Lazygit              |
+| `<leader>gf` | Lazygit (current file)    |
+| `<leader>gl` | Lazygit log / filter view |
 
 ---
 

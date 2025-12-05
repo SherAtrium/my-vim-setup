@@ -164,6 +164,7 @@ just clone your config, open Neovim, and everything installs automatically.
 - prettierd
 - shfmt
 - stylua
+- markdownlint
 
 **Linters**
 
@@ -180,7 +181,7 @@ just clone your config, open Neovim, and everything installs automatically.
 
 ### 🛠 How It Works
 
-When you start Neovim, `mason-tool-installer` automatically:
+When you start Neovim, `mason-tool-installer` can automatically install all the needed tools:
 
 - Installs missing tools
 - Ensures consistency across all machines
