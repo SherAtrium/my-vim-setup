@@ -3,18 +3,14 @@
 --  ABOUT: Bootstrap the lazy.nvim plugin manager and load base configuration modules
 -- ================================================================================================
 
-----------------------------------------------------------------------------------------------------
 -- Disable netrw (REQUIRED by neo-tree)
 -- Must run BEFORE anything happens in runtimepath
-----------------------------------------------------------------------------------------------------
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.g.loaded_netrwSettings = 1
 vim.g.loaded_netrwFileHandlers = 1
 
-----------------------------------------------------------------------------------------------------
 -- BOOTSTRAP lazy.nvim
-----------------------------------------------------------------------------------------------------
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
 -- Check if lazy.nvim exists; if not, clone it
@@ -43,22 +39,16 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-----------------------------------------------------------------------------------------------------
 -- Load core config files BEFORE plugin initialization
-----------------------------------------------------------------------------------------------------
 require("config.globals")
 require("config.options")
 require("config.keymaps")
 require("config.autocmds")
 
-----------------------------------------------------------------------------------------------------
 -- Folder containing plugin specs
-----------------------------------------------------------------------------------------------------
 local plugins_dir = "plugins"
 
-----------------------------------------------------------------------------------------------------
 -- LAZY.NVIM CONFIGURATION
-----------------------------------------------------------------------------------------------------
 require("lazy").setup({
 	spec = {
 		-- Import all plugin modules defined inside /lua/plugins/

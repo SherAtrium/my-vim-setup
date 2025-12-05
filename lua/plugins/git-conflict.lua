@@ -14,9 +14,7 @@ return {
 				disable_diagnostics = true,
 			})
 
-			-- =========================================================================
 			--  Conflict Resolution (<leader>gc…)
-			-- =========================================================================
 			vim.keymap.set("n", "<leader>gco", "<cmd>GitConflictChooseOurs<cr>", { desc = "Git: Choose Ours" })
 			vim.keymap.set("n", "<leader>gct", "<cmd>GitConflictChooseTheirs<cr>", { desc = "Git: Choose Theirs" })
 			vim.keymap.set("n", "<leader>gcb", "<cmd>GitConflictChooseBoth<cr>", { desc = "Git: Choose Both" })

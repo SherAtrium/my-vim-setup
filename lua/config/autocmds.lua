@@ -5,10 +5,8 @@
 
 local on_attach = require("utils.lsp").on_attach
 
-----------------------------------------------------------------------------------------------------
 -- RESTORE CURSOR POSITION
 -- When reopening a file, jump back to the last known cursor position.
-----------------------------------------------------------------------------------------------------
 local last_cursor_group = vim.api.nvim_create_augroup("LastCursorGroup", {})
 
 vim.api.nvim_create_autocmd("BufReadPost", {
@@ -24,10 +22,8 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 	end,
 })
 
-----------------------------------------------------------------------------------------------------
 -- HIGHLIGHT YANKED TEXT
 -- Provide short visual feedback (IncSearch highlight) whenever text is yanked.
-----------------------------------------------------------------------------------------------------
 local highlight_yank_group = vim.api.nvim_create_augroup("HighlightYank", {})
 
 vim.api.nvim_create_autocmd("TextYankPost", {
@@ -41,11 +37,9 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
-----------------------------------------------------------------------------------------------------
 -- LSP ATTACH
 -- When an LSP connects to a buffer, run your custom on_attach() logic:
 -- keymaps, formatting, code actions, etc.
-----------------------------------------------------------------------------------------------------
 local lsp_on_attach_group = vim.api.nvim_create_augroup("LspMappings", {})
 
 vim.api.nvim_create_autocmd("LspAttach", {

@@ -10,19 +10,15 @@ function M.setup()
 
 	conform.setup({
 
-		------------------------------------------------------------------------------------------------
 		-- AUTO FORMAT ON SAVE
 		-- timeout_ms: Maximum wait time for formatter
 		-- lsp_format = "fallback": Use LSP formatting if no tool is defined
-		------------------------------------------------------------------------------------------------
 		format_on_save = {
 			timeout_ms = 3000,
 			lsp_format = "fallback",
 		},
 
-		------------------------------------------------------------------------------------------------
 		-- FORMATTERS PER FILETYPE
-		------------------------------------------------------------------------------------------------
 		formatters_by_ft = {
 			-- Web languages
 			javascript = { "prettierd", "prettier" },

@@ -8,17 +8,13 @@ local M = {}
 function M.setup()
 	require("neo-tree").setup({
 
-		------------------------------------------------------------------------------------------------
 		-- GENERAL SETTINGS
-		------------------------------------------------------------------------------------------------
 		close_if_last_window = true, -- Close neo-tree when it's the only window left
 		popup_border_style = "rounded", -- Borders around floating windows
 		enable_git_status = true, -- Show Git file status
 		enable_diagnostics = true, -- Show LSP diagnostics inside tree
 
-		------------------------------------------------------------------------------------------------
 		-- COMPONENT CONFIGURATION
-		------------------------------------------------------------------------------------------------
 		default_component_configs = {
 
 			indent = {
@@ -66,9 +62,7 @@ function M.setup()
 			},
 		},
 
-		------------------------------------------------------------------------------------------------
 		-- FILESYSTEM VIEW
-		------------------------------------------------------------------------------------------------
 		filesystem = {
 			bind_to_cwd = false, -- Prevents delay on macOS
 			use_libuv_file_watcher = true, -- Real-time FS updates
@@ -89,18 +83,14 @@ function M.setup()
 			group_empty_dirs = true,
 		},
 
-		------------------------------------------------------------------------------------------------
 		-- BUFFERS VIEW
-		------------------------------------------------------------------------------------------------
 		buffers = {
 			follow_current_file = { enabled = true },
 			group_empty_dirs = true,
 			show_unloaded = true,
 		},
 
-		------------------------------------------------------------------------------------------------
 		-- GIT STATUS VIEW
-		------------------------------------------------------------------------------------------------
 		git_status = {
 			window = {
 				position = "right",
@@ -108,9 +98,7 @@ function M.setup()
 			},
 		},
 
-		------------------------------------------------------------------------------------------------
 		-- WINDOW + KEY MAPPINGS
-		------------------------------------------------------------------------------------------------
 		window = {
 			position = "left",
 			width = 40,

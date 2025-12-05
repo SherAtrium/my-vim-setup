@@ -34,9 +34,7 @@ function M.setup()
 				vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = desc })
 			end
 
-			-- =========================================================================
 			--  Hunks (<leader>gs, <leader>gr, visual-mode support)
-			-- =========================================================================
 			map("n", "<leader>gs", gs.stage_hunk, "Git: Stage Hunk")
 			map("n", "<leader>gr", gs.reset_hunk, "Git: Reset Hunk")
 			map("v", "<leader>gs", function()
@@ -46,16 +44,12 @@ function M.setup()
 				gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
 			end, "Git: Reset Visual Hunk")
 
-			-- =========================================================================
 			--  Hunk Preview + Blame
-			-- =========================================================================
 			map("n", "<leader>gp", gs.preview_hunk, "Git: Preview Hunk")
 			map("n", "<leader>gb", gs.blame_line, "Git: Blame (Popup)")
 			map("n", "<leader>gB", gs.toggle_current_line_blame, "Git: Toggle Inline Blame")
 
-			-- =========================================================================
 			--  Hunk Navigation
-			-- =========================================================================
 			map("n", "]h", gs.next_hunk, "Git: Next Hunk")
 			map("n", "[h", gs.prev_hunk, "Git: Previous Hunk")
 		end,
