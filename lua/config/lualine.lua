@@ -47,7 +47,7 @@ function M.setup()
 		options = {
 			icons_enabled = true,
 			-- section_separators = { left = "", right = "" },
-			component_separators = "|",
+			-- component_separators = "|",
 			padding = 1,
 			theme = "solarized-osaka",
 		},
@@ -57,7 +57,7 @@ function M.setup()
 				{
 					"branch",
 					color = { bg = "none", fg = "#9fabad" },
-					separator = { right = "》" },
+					separator = { right = "〉" },
 				},
 				{
 					"diff",
@@ -79,11 +79,20 @@ function M.setup()
 			lualine_x = {
 				{
 					node_version,
-					color = { fg = "#859900" },
+					color = { bg = "none", fg = "#859900" },
+					separator = { left = "《" },
 				},
-				"encoding",
-				"fileformat",
-				"filetype",
+				{
+					"encoding",
+					color = { bg = "none" },
+					separator = { left = "〈" },
+				},
+				-- "fileformat",
+				{
+					"filetype",
+					color = { bg = "none" },
+					separator = { left = "〈" },
+				},
 			},
 		},
 	})

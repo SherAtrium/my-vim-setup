@@ -10,7 +10,7 @@ local opt = vim.opt
 ----------------------------------------------------------------------------------------------------
 opt.number = true -- Show absolute line numbers
 opt.relativenumber = true -- Relative line numbers improve navigation
-opt.cursorline = true -- Highlight current line
+opt.cursorline = false -- Highlight current line
 opt.scrolloff = 8 -- Keep cursor vertically centered
 opt.sidescrolloff = 8 -- Horizontal padding
 opt.wrap = false -- Disable line wrapping (web dev prefers no wrap)
