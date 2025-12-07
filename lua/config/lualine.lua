@@ -46,16 +46,34 @@ function M.setup()
 	lualine.setup({
 		options = {
 			icons_enabled = true,
-			section_separators = { left = "", right = "" },
+			-- section_separators = { left = "", right = "" },
 			component_separators = "|",
-			-- theme = "melange", -- Example: override theme
+			padding = 1,
+			theme = "solarized-osaka",
 		},
 
 		sections = {
+			lualine_b = {
+				{
+					"branch",
+					color = { bg = "none", fg = "#9fabad" },
+					separator = { right = "》" },
+				},
+				{
+					"diff",
+					color = { bg = "none" },
+					separator = { right = "》" },
+				},
+				{
+					"diagnostics",
+					color = { bg = "none" },
+					separator = { right = "》" },
+				},
+			},
 			lualine_x = {
 				{
 					node_version,
-					color = { fg = "#83BA63" },
+					color = { fg = "#859900" },
 				},
 				"encoding",
 				"fileformat",

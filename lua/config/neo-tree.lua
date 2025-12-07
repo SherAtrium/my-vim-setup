@@ -119,7 +119,7 @@ function M.setup()
 				["t"] = "open_tabnew",
 
 				-- Filtering
-				["f"] = "filter_on_submit_refresh",
+				["f"] = "filter_on_submit",
 				["F"] = "clear_filter",
 
 				-- File actions
