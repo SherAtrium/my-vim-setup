@@ -106,7 +106,6 @@ A cleaner alternative to many plugins:
 - mini.trailspace
 - mini.bufremove
 - mini.notify
-- mini.diff (git hunks)
 
 ### 🧹 Formatting & Linting
 
