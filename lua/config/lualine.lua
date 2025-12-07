@@ -70,6 +70,12 @@ function M.setup()
 					separator = { right = "》" },
 				},
 			},
+			lualine_c = {
+				{
+					"filename",
+					path = 1,
+				},
+			},
 			lualine_x = {
 				{
 					node_version,
