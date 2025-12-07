@@ -29,241 +29,186 @@ Keymaps are grouped logically by their domain.
 
 # 🎯 General Editing
 
-| Key       | Action                            |
-| --------- | --------------------------------- |
-| `J`       | Join lines (keep cursor centered) |
-| `<C-d>`   | Half-page down (centered)         |
-| `<C-u>`   | Half-page up (centered)           |
-| `<Left>`  | Increase window width             |
-| `<Right>` | Decrease window width             |
-| `<Up>`    | Decrease window height            |
-| `<Down>`  | Increase window height            |
-| `qq`      | Quit without saving               |
+- `J` — Join lines (cursor centered)
+- `<C-d>` — Half-page down (centered)
+- `<C-u>` — Half-page up (centered)
+- Arrow keys — Resize splits (`← → ↑ ↓`)
+- `qq` — Quit without saving
 
 ### Visual Mode
 
-| Key | Action                  |
-| --- | ----------------------- |
-| `<` | Indent left & reselect  |
-| `>` | Indent right & reselect |
+- `<` — Indent left & reselect
+- `>` — Indent right & reselect
 
 ---
 
-# 🪟 Window Management (`<leader>w…`)
+# 🪟 Window Management — `<leader>w`
 
-| Key          | Action           |
-| ------------ | ---------------- |
-| `<leader>wh` | Horizontal split |
-| `<leader>wv` | Vertical split   |
-| `<leader>wd` | Close window     |
-| `<leader>w=` | Equalize splits  |
+- `wh` — Horizontal split
+- `wv` — Vertical split
+- `wd` — Close window
+- `w=` — Equalize splits
 
 ---
 
-# 📁 Neo-tree Explorer (`<leader>e…`)
+# 📁 Neo-tree Explorer — `<leader>e`
 
-| Key          | Action                |
-| ------------ | --------------------- |
-| `<leader>e`  | File explorer (left)  |
-| `<leader>ef` | File explorer (float) |
-| `<leader>eb` | Buffers tree          |
-| `<leader>eg` | Git status tree       |
+- `e` — File explorer (left)
+- `ef` — Floating explorer
+- `eb` — Buffers tree
+- `eg` — Git status tree
 
 ---
 
-# 🔍 FZF-Lua Search (`<leader>f…`)
+# 🔍 FZF-Lua Search — `<leader>f`
 
-| Key          | Action                |
-| ------------ | --------------------- |
-| `<leader>ff` | Find files            |
-| `<leader>fg` | Live grep             |
-| `<leader>fb` | FZF buffer list       |
-| `<leader>fh` | Help tags             |
-| `<leader>fs` | Document symbols      |
-| `<leader>fS` | Workspace symbols     |
-| `<leader>fx` | Document diagnostics  |
-| `<leader>fX` | Workspace diagnostics |
+- `ff` — Find files
+- `fg` — Live grep
+- `fb` — Buffers list
+- `fh` — Help tags
+- `fs` — Document symbols
+- `fS` — Workspace symbols
+- `fx` — Document diagnostics
+- `fX` — Workspace diagnostics
 
 ---
 
-# 🗂 Buffers (`<leader>b…`)
+# 🗂 Buffers — `<leader>b`
 
-| Key          | Action          |
-| ------------ | --------------- |
-| `<leader>bb` | List buffers    |
-| `<leader>bp` | Previous buffer |
-| `<leader>bn` | Next buffer     |
-| `<leader>bd` | Delete buffer   |
+- `bb` — Buffer list
+- `bp` — Previous buffer
+- `bn` — Next buffer
+- `bd` — Delete buffer
 
 ---
 
-# 🛠 Git (`<leader>g…`)
+# 🛠 Git — `<leader>g`
 
-## 🔧 Hunk Actions
+### Hunk Actions
 
-| Key          | Action              |
-| ------------ | ------------------- |
-| `<leader>gs` | Stage hunk          |
-| `<leader>gr` | Reset hunk          |
-| `<leader>gp` | Preview hunk        |
-| `<leader>gb` | Blame (popup)       |
-| `<leader>gB` | Toggle inline blame |
+- `gs` — Stage hunk
+- `gr` — Reset hunk
+- `gp` — Preview hunk
+- `gb` — Blame popup
+- `gB` — Toggle inline blame
 
-## 🔀 Hunk Navigation
+### Hunk Navigation
 
-| Key  | Action        |
-| ---- | ------------- |
-| `]h` | Next hunk     |
-| `[h` | Previous hunk |
+- `]h` — Next hunk
+- `[h` — Previous hunk
 
-## 📜 Diffview
+### Diffview
 
-| Key          | Action            |
-| ------------ | ----------------- |
-| `<leader>gd` | Open Diffview     |
-| `<leader>gD` | Close Diffview    |
-| `<leader>gh` | File history view |
+- `gd` — Open Diffview
+- `gD` — Close Diffview
+- `gh` — File history
 
-## ⚔️ Merge Conflicts (`<leader>gc…`)
+### Merge Conflicts — `<leader>gc`
 
-| Key           | Action            |
-| ------------- | ----------------- |
-| `<leader>gco` | Choose ours       |
-| `<leader>gct` | Choose theirs     |
-| `<leader>gcb` | Choose both       |
-| `<leader>gcn` | Next conflict     |
-| `<leader>gcp` | Previous conflict |
+- `gco` — Choose ours
+- `gct` — Choose theirs
+- `gcb` — Choose both
+- `gcn` — Next conflict
+- `gcp` — Previous conflict
 
-### 🐙 Lazygit — Git TUI Interface
+### Lazygit
 
-| Key          | Action                    |
-| ------------ | ------------------------- |
-| `<leader>gg` | Open Lazygit              |
-| `<leader>gf` | Lazygit (current file)    |
-| `<leader>gl` | Lazygit log / filter view |
+- `gg` — Open Lazygit
+- `gf` — Lazygit (current file)
+- `gl` — Lazygit log
 
 ---
 
-# 🧠 Code Tools (`<leader>c…`)
+# 🧠 Code Tools — `<leader>c`
 
-| Key           | Action                    |
-| ------------- | ------------------------- |
-| `<leader>ca`  | Code action               |
-| `<leader>cr`  | Rename symbol             |
-| `<leader>cf`  | Format buffer             |
-| `<leader>coi` | Organize imports + format |
-| `<leader>ll`  | Lint buffer               |
+- `ca` — Code action
+- `cr` — Rename symbol
+- `cf` — Format buffer
+- `coi` — Organize imports + format
+- `ll` — Lint buffer
 
 ---
 
-# 🩺 Native Diagnostics (`<leader>d…`)
+# 🩺 Native Diagnostics — `<leader>d`
 
-| Key          | Action                 |
-| ------------ | ---------------------- |
-| `<leader>do` | Open diagnostics float |
-| `<leader>dp` | Previous diagnostic    |
-| `<leader>dn` | Next diagnostic        |
+- `do` — Diagnostics float
+- `dp` — Previous diagnostic
+- `dn` — Next diagnostic
 
 ---
 
-# 🚨 Trouble Diagnostics UI (`<leader>x…`)
+# 🚨 Trouble Diagnostics UI — `<leader>x`
 
-| Key          | Action                       |
-| ------------ | ---------------------------- |
-| `<leader>xx` | Workspace diagnostics        |
-| `<leader>xX` | Buffer diagnostics           |
-| `<leader>xQ` | Quickfix list                |
-| `<leader>xL` | Location list                |
-| `<leader>xl` | LSP definitions & references |
-| `<leader>xs` | LSP symbols                  |
+- `xx` — Workspace diagnostics
+- `xX` — Buffer diagnostics
+- `xQ` — Quickfix list
+- `xL` — Location list
+- `xl` — LSP definitions & references
+- `xs` — LSP symbols
 
 ---
 
-# 🧩 Mini.nvim Keymaps
+# 🧩 Mini.nvim
 
-## Comments (mini.comment)
+### Comments
 
-| Key     | Action                |
-| ------- | --------------------- |
-| `<C-/>` | Toggle comment        |
-| `gc`    | Comment operator mode |
+- `<C-/>` — Toggle comment
+- `gc` — Comment operator
 
-## Surround (mini.surround)
+### Surround
 
-| Key  | Action           |
-| ---- | ---------------- |
-| `sa` | Add surround     |
-| `sd` | Delete surround  |
-| `sf` | Find surround    |
-| `sF` | Find surround ←  |
-| `sh` | Highlight        |
-| `sr` | Replace surround |
+- `sa` — Add surround
+- `sd` — Delete surround
+- `sf` — Find surround
+- `sF` — Find backward
+- `sh` — Highlight surround
+- `sr` — Replace surround
 
-## Move (mini.move)
+### Move
 
-| Key     | Action     |
-| ------- | ---------- |
-| `<C-j>` | Move down  |
-| `<C-k>` | Move up    |
-| `<C-h>` | Move left  |
-| `<C-l>` | Move right |
-
-Other mini.nvim modules have no keybindings.
+- `<C-j>` — Move line down
+- `<C-k>` — Move line up
+- `<C-h>` — Move left
+- `<C-l>` — Move right
 
 ---
 
-# 🔎 LSP Navigation (`<leader>l…`)
+# 🔎 LSP Navigation — `<leader>l`
 
-| Key          | Action              |
-| ------------ | ------------------- |
-| `K`          | Hover documentation |
-| `<leader>ld` | Go to definition    |
-| `<leader>lD` | Definition (vsplit) |
-| `<leader>lt` | Type definition     |
-| `<leader>li` | Implementation      |
-| `<leader>lr` | References          |
-| `<leader>la` | Code action         |
-| `<leader>ln` | Rename symbol       |
+- `K` — Hover docs
+- `ld` — Definition
+- `lD` — Definition (vsplit)
+- `lt` — Type definition
+- `li` — Implementation
+- `lr` — References
+- `la` — Code action
+- `ln` — Rename
 
-### LSP Diagnostics
+### Diagnostics
 
-| Key          | Action              |
-| ------------ | ------------------- |
-| `<leader>do` | Diagnostics float   |
-| `<leader>dp` | Previous diagnostic |
-| `<leader>dn` | Next diagnostic     |
+- `do` — Float diagnostics
+- `dp` — Previous diagnostic
+- `dn` — Next diagnostic
 
 ---
 
-# 🔍 FZF-LSP Integration (`<leader>lF…`)
+# 🔍 FZF-LSP — `<leader>lF`
 
-| Key           | Action               |
-| ------------- | -------------------- |
-| `<leader>lFd` | LSP Finder           |
-| `<leader>lFr` | LSP References       |
-| `<leader>lFt` | LSP Type Definitions |
-| `<leader>lFi` | LSP Implementations  |
-| `<leader>lFs` | Document symbols     |
-| `<leader>lFw` | Workspace symbols    |
+- `lFd` — LSP Finder
+- `lFr` — References
+- `lFt` — Type definitions
+- `lFi` — Implementations
+- `lFs` — Document symbols
+- `lFw` — Workspace symbols
 
 ---
 
 # ❔ Help
 
-| Key         | Action          |
-| ----------- | --------------- |
-| `<leader>?` | Which-key popup |
+- `<leader>?` — Which-key popup
 
 ---
 
 # 🔧 Misc
 
-| Key  | Action   |
-| ---- | -------- |
-| `gx` | Open URL |
-
----
-
-This document is fully synchronized with your **actual keymaps**, your **new prefix design**, your **plugin configs**, and the final structure of your Neovim setup.
-
----
+- `gx` — Open URL
