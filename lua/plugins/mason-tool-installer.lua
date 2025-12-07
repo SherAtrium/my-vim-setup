@@ -45,6 +45,7 @@ return {
 			"hadolint",
 			"revive",
 			"shellcheck",
+			"markdownlint", -- need for markdown files
 
 			-- ---------------------------
 			-- Debug Adapters (DAP)
