@@ -39,8 +39,6 @@ function M.setup()
 
 			-- Other languages
 			lua = { "stylua" },
-			python = { "black" },
-			go = { "gofmt" },
 			sh = { "shfmt" },
 		},
 	})

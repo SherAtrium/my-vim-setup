@@ -25,8 +25,6 @@ function M.setup()
 		yaml = { "yamllint" },
 
 		-- Backend languages
-		python = { "flake8" },
-		go = { "golangcilint" },
 		lua = { "luacheck" },
 	}
 

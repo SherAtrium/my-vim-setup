@@ -20,7 +20,6 @@ return {
 			"eslint_d", -- used for linting/formatting JS/TS
 			"json-lsp",
 			"lua-language-server",
-			"pyright",
 			"tailwindcss-language-server",
 			"typescript-language-server",
 			"yaml-language-server",
@@ -28,7 +27,6 @@ return {
 			-- ---------------------------
 			-- Formatters
 			-- ---------------------------
-			"black",
 			"clang-format",
 			"prettierd", -- use prettierd, not prettier
 			"shfmt",
@@ -39,9 +37,7 @@ return {
 			-- ---------------------------
 			"cpplint",
 			"fixjson",
-			"flake8",
 			"hadolint",
-			"revive",
 			"shellcheck",
 			"markdownlint", -- need for markdown files
 
