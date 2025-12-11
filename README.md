@@ -1,6 +1,6 @@
 # ✨ SherAtrium's Neovim
 
-A modern, fast, modular Neovim configuration optimized for **Web Development**, **TypeScript**, **JavaScript**, **Go**, **Python**, **Lua**, and multi-language workflows in 2025+.
+A modern, fast, modular Neovim configuration optimized for **Web Development**, **TypeScript**, **JavaScript**, **Lua**, and multi-language workflows in 2025+.
 
 This repository contains my personal Neovim configuration — clean, structured, stable, and built with a strong focus on **performance**, **clarity**, and **developer experience**.
 
@@ -55,7 +55,7 @@ A complete, detailed list of **every keybinding** is available here:
 ### 🧠 Intelligent LSP Setup
 
 - Language servers for:  
-  **Lua, TypeScript, JavaScript, Docker, Bash, Python, Go, YAML, C/C++, TailwindCSS, JSON, Emmet**
+  **Lua, TypeScript, JavaScript, Docker, Bash, YAML, TailwindCSS, JSON, Emmet**
 - Inlay hints, hover, rename, code actions, references, formatting
 - Per-language configuration under `lua/servers/*.lua`
 
@@ -110,7 +110,7 @@ A cleaner alternative to many plugins:
 ### 🧹 Formatting & Linting
 
 - **conform.nvim** for formatting
-- **nvim-lint** for linting (eslint_d, flake8, shellcheck, markdownlint, yamllint, luacheck, etc.)
+- **nvim-lint** for linting (eslint_d, shellcheck, markdownlint, yamllint, luacheck, etc.)
 
 ### 💡 Quality of Life
 
@@ -143,23 +143,17 @@ just clone your config, open Neovim, and everything installs automatically.
 **LSP Servers**
 
 - bash-language-server
-- clangd
 - dockerfile-language-server
 - emmet-ls
 - eslint_d
-- gopls
 - json-lsp
 - lua-language-server
-- pyright
 - tailwindcss-language-server
 - typescript-language-server
 - yaml-language-server
 
 **Formatters**
 
-- black
-- clang-format
-- gofumpt
 - prettierd
 - shfmt
 - stylua
@@ -167,16 +161,13 @@ just clone your config, open Neovim, and everything installs automatically.
 
 **Linters**
 
-- cpplint
 - fixjson
-- flake8
 - hadolint
-- revive
 - shellcheck
 
 **Debugging**
 
-- codelldb
+-
 
 ### 🛠 How It Works
 

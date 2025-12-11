@@ -34,13 +34,8 @@ return {
 
 				-- Backend / Other
 				"bash",
-				"c",
-				"cpp",
 				"dockerfile",
-				"go",
 				"lua",
-				"python",
-				"rust",
 				"markdown",
 				"markdown_inline",
 				"sql",

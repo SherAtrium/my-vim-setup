@@ -13,7 +13,6 @@ require("servers.lua_ls")(capabilities)
 require("servers.jsonls")(capabilities)
 require("servers.ts_ls")(capabilities)
 require("servers.bashls")(capabilities)
-require("servers.clangd")(capabilities)
 require("servers.dockerls")(capabilities)
 require("servers.emmet_ls")(capabilities)
 require("servers.yamlls")(capabilities)
@@ -28,7 +27,6 @@ vim.lsp.enable({
 	"jsonls",
 	"ts_ls",
 	"bashls",
-	"clangd",
 	"dockerls",
 	"emmet_ls",
 	"yamlls",

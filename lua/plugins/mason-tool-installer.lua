@@ -14,7 +14,6 @@ return {
 			-- LSP Servers
 			-- ---------------------------
 			"bash-language-server",
-			"clangd",
 			"dockerfile-language-server",
 			"emmet-ls",
 			"eslint_d", -- used for linting/formatting JS/TS
@@ -27,7 +26,6 @@ return {
 			-- ---------------------------
 			-- Formatters
 			-- ---------------------------
-			"clang-format",
 			"prettierd", -- use prettierd, not prettier
 			"shfmt",
 			"stylua",
@@ -35,7 +33,6 @@ return {
 			-- ---------------------------
 			-- Linters
 			-- ---------------------------
-			"cpplint",
 			"fixjson",
 			"hadolint",
 			"shellcheck",
@@ -44,7 +41,6 @@ return {
 			-- ---------------------------
 			-- Debug Adapters (DAP)
 			-- ---------------------------
-			"codelldb",
 		},
 
 		-- Automatically install everything on startup
