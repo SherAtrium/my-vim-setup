@@ -11,7 +11,6 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 ----------------------------------------------------------------------------------------------------
 require("servers.lua_ls")(capabilities)
 require("servers.pyright")(capabilities)
-require("servers.gopls")(capabilities)
 require("servers.jsonls")(capabilities)
 require("servers.ts_ls")(capabilities)
 require("servers.bashls")(capabilities)
@@ -28,7 +27,6 @@ require("servers.tailwindcss")(capabilities)
 vim.lsp.enable({
 	"lua_ls",
 	"pyright",
-	"gopls",
 	"jsonls",
 	"ts_ls",
 	"bashls",

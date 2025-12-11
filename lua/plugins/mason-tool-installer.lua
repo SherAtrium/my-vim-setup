@@ -18,7 +18,6 @@ return {
 			"dockerfile-language-server",
 			"emmet-ls",
 			"eslint_d", -- used for linting/formatting JS/TS
-			"gopls",
 			"json-lsp",
 			"lua-language-server",
 			"pyright",
@@ -31,7 +30,6 @@ return {
 			-- ---------------------------
 			"black",
 			"clang-format",
-			"gofumpt",
 			"prettierd", -- use prettierd, not prettier
 			"shfmt",
 			"stylua",
