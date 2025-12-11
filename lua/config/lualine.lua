@@ -42,57 +42,71 @@ end
 
 function M.setup()
 	local lualine = require("lualine")
+	local colors = require("solarized-osaka")
 
 	lualine.setup({
 		options = {
 			icons_enabled = true,
-			-- section_separators = { left = "", right = "" },
-			-- component_separators = "|",
+			component_separators = { left = "", right = "" },
+			section_separators = { left = "", right = "" },
 			padding = 1,
 			theme = "solarized-osaka",
 		},
 
 		sections = {
+			lualine_a = { "mode" },
 			lualine_b = {
-				{
-					"branch",
-					color = { bg = "none", fg = "#9fabad" },
-					separator = { right = "〉" },
-				},
+				{ "branch", color = { fg = colors.fg, bg = colors.bg }, separator = { right = "" } },
 				{
 					"diff",
+					symbols = { added = " ", modified = " ", removed = " " },
+					separator = { right = "" },
+					diff_color = {
+						added = { fg = colors.green },
+						modified = { fg = colors.orange },
+						removed = { fg = colors.red },
+					},
 					color = { bg = "none" },
-					separator = { right = "》" },
-				},
-				{
-					"diagnostics",
-					color = { bg = "none" },
-					separator = { right = "》" },
+					source = function()
+						local gitsigns = vim.b.gitsigns_status_dict
+						if gitsigns then
+							return {
+								added = gitsigns.added,
+								modified = gitsigns.changed,
+								removed = gitsigns.removed,
+							}
+						end
+					end,
 				},
 			},
 			lualine_c = {
-				{
-					"filename",
-					path = 1,
-				},
+				{ "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
+				{ "filename", path = 1, padding = 0 },
 			},
 			lualine_x = {
-				{
-					node_version,
-					color = { bg = "none", fg = "#859900" },
-					separator = { left = "《" },
-				},
-				{
-					"encoding",
-					color = { bg = "none" },
-					separator = { left = "〈" },
-				},
-				-- "fileformat",
-				{
-					"filetype",
-					color = { bg = "none" },
-					separator = { left = "〈" },
-				},
+				{ node_version, color = { bg = "none", fg = "#859900" }, separator = { left = "" } },
+				{ "diagnostics", color = { bg = "none" }, separator = { left = "" } },
+				-- {
+				-- 	-- Showing correct system logo
+				-- 	function()
+				-- 		local is_mac = vim.loop.os_uname().sysname == "Darwin"
+				-- 		return (is_mac and "" or "")
+				-- 	end,
+				-- },
+				-- {
+				-- 	"encoding",
+				-- 	color = { bg = "none" },
+				-- 	separator = { left = "〈" },
+				-- },
+			},
+			lualine_y = {
+				{ "progress", separator = " ", padding = { left = 1, right = 0 } },
+				{ "location", padding = { left = 0, right = 1 } },
+			},
+			lualine_z = {
+				function()
+					return " " .. os.date("%R")
+				end,
 			},
 		},
 	})
