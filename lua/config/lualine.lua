@@ -93,11 +93,11 @@ function M.setup()
 				-- 		return (is_mac and "" or "")
 				-- 	end,
 				-- },
-				-- {
-				-- 	"encoding",
-				-- 	color = { bg = "none" },
-				-- 	separator = { left = "〈" },
-				-- },
+				{
+					"encoding",
+					color = { bg = "none" },
+					separator = { left = "" },
+				},
 			},
 			lualine_y = {
 				-- { "progress", separator = " ", padding = { left = 1, right = 0 } },
