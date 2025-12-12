@@ -65,14 +65,14 @@ map("n", "<leader>wv", "<cmd>vsplit<CR>", { desc = "Vertical Split" })
 map("n", "<leader>wd", "<cmd>close<CR>", { desc = "Close Window" })
 map("n", "<leader>w=", "<cmd>wincmd =<CR>", { desc = "Equalize Splits" })
 
--- ================================================================================================
---  BUFFER MANAGEMENT (<leader>b…)
--- ================================================================================================
-
-map("n", "<leader>bb", "<cmd>buffers<CR>", { desc = "Buffers List" })
-map("n", "<leader>bp", "<cmd>bprevious<CR>", { desc = "Previous Buffer" })
-map("n", "<leader>bn", "<cmd>bnext<CR>", { desc = "Next Buffer" })
-map("n", "<leader>bd", "<cmd>bdelete<CR>", { desc = "Delete Buffer" })
+-- -- ================================================================================================
+-- --  BUFFER MANAGEMENT (<leader>b…)
+-- -- ================================================================================================
+--
+-- map("n", "<leader>bb", "<cmd>buffers<CR>", { desc = "Buffers List" })
+-- map("n", "<leader>bp", "<cmd>bprevious<CR>", { desc = "Previous Buffer" })
+-- map("n", "<leader>bn", "<cmd>bnext<CR>", { desc = "Next Buffer" })
+-- map("n", "<leader>bd", "<cmd>bdelete<CR>", { desc = "Delete Buffer" })
 
 -- ================================================================================================
 --  NEO-TREE — File Explorer (<leader>e…)
