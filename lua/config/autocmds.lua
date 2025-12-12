@@ -46,3 +46,56 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	group = lsp_on_attach_group,
 	callback = on_attach,
 })
+
+--  BUFFER SAFETY & NEO-TREE LAYOUT RECOVERY
+--  ABOUT :
+--    • When the last real buffer is deleted, only Neo-tree remains.
+--    • Create a new window + empty buffer so file ops still work.
+--    • Fully re-open Neo-tree to restore its configured width.
+--    • Move cursor into Neo-tree window automatically. (NOT WORKS YET)
+-- vim.api.nvim_create_autocmd("BufDelete", {
+-- 	callback = function()
+-- 		local neotree_exists = false
+-- 		local normal_win_exists = false
+--
+-- 		-- Detect if Neo-tree is the only remaining window
+-- 		for _, win in ipairs(vim.api.nvim_list_wins()) do
+-- 			local buf = vim.api.nvim_win_get_buf(win)
+-- 			local ft = vim.bo[buf].filetype
+-- 			local bt = vim.bo[buf].buftype
+--
+-- 			if ft == "neo-tree" then
+-- 				neotree_exists = true
+-- 			elseif bt == "" then
+-- 				normal_win_exists = true
+-- 			end
+-- 		end
+--
+-- 		-- If a normal window exists or Neo-tree is not open → do nothing
+-- 		if normal_win_exists or not neotree_exists then
+-- 			return
+-- 		end
+--
+-- 		-- Step 1: Create a new split with an empty buffer (right side)
+-- 		vim.cmd("vnew")
+-- 		vim.cmd("enew")
+--
+-- 		-- Step 2: Close + reopen Neo-tree, then focus it
+-- 		vim.schedule(function()
+-- 			pcall(function()
+-- 				-- Close tree first
+-- 				require("neo-tree.command").execute({ action = "close" })
+--
+-- 				-- Re-open filesystem tree at configured position (left)
+-- 				require("neo-tree.command").execute({
+-- 					action = "show",
+-- 					source = "filesystem",
+-- 					position = "left",
+-- 				})
+--
+-- 				-- Move cursor to Neo-tree
+-- 				require("neo-tree.command").execute({ action = "focus" })
+-- 			end)
+-- 		end)
+-- 	end,
+-- })

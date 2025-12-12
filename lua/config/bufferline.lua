@@ -44,6 +44,9 @@ M.setup = function()
 
 	bufferline.setup(M.opts)
 
+	-- Buffer list
+	vim.keymap.set("n", "<leader>bb", "<cmd>buffers<CR>", { desc = "Buffers List" })
+
 	-- Navigation
 	vim.keymap.set("n", "<leader>bn", "<cmd>BufferLineCycleNext<CR>", { desc = "Next Buffer" })
 	vim.keymap.set("n", "<leader>bp", "<cmd>BufferLineCyclePrev<CR>", { desc = "Previous Buffer" })
@@ -56,7 +59,7 @@ M.setup = function()
 	vim.keymap.set("n", "<leader>bl", "<cmd>BufferLineMoveNext<CR>", { desc = "Move Buffer Right" })
 
 	-- Close
-	vim.keymap.set("n", "<leader>bd", "<cmd>bdelete<CR>", { desc = "Delete Buffer" })
+	-- vim.keymap.set("n", "<leader>bd", "<cmd>bdelete<CR>", { desc = "Delete Buffer" })
 	vim.keymap.set("n", "<leader>bc", "<cmd>BufferLineCloseOthers<CR>", { desc = "Close Other Buffers" })
 end
 

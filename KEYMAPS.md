@@ -90,6 +90,7 @@ Keymaps are grouped logically by their domain.
 
 | Key          | Action              |
 | ------------ | ------------------- |
+| `<leader>bb` | Buffers list        |
 | `<leader>bn` | Next buffer         |
 | `<leader>bp` | Previous buffer     |
 | `<leader>bP` | Pin / Unpin buffer  |
