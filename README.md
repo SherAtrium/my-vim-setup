@@ -14,7 +14,7 @@ Keybindings in this configuration follow a **clean, mnemonic, hierarchical** des
 Every keymap is structured to be:
 
 - **Discoverable** (works great with which-key)
-- **Category-based** (LSP, FZF, Buffers, Diagnostics, etc.)
+- **Category-based** (LSP, FZF, Buffers (bufferline), Diagnostics, etc.)
 - **Leader-driven** for consistency (`<leader>` = `Space`)
 - **Conflict-free** and easy to remember
 

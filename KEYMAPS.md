@@ -86,14 +86,16 @@ Keymaps are grouped logically by their domain.
 
 ---
 
-# 🗂 Buffers (`<leader>b…`)
+# 🗂 Buffers (bufferline) (`<leader>b…`)
 
-| Key          | Action          |
-| ------------ | --------------- |
-| `<leader>bb` | List buffers    |
-| `<leader>bp` | Previous buffer |
-| `<leader>bn` | Next buffer     |
-| `<leader>bd` | Delete buffer   |
+| Key          | Action              |
+| ------------ | ------------------- |
+| `<leader>bn` | Next buffer         |
+| `<leader>bp` | Previous buffer     |
+| `<leader>bP` | Pin / Unpin buffer  |
+| `<leader>bh` | Move buffer left    |
+| `<leader>bl` | Move buffer right   |
+| `<leader>bd` | Close other buffers |
 
 ---
 
