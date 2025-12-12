@@ -55,8 +55,9 @@ M.setup = function()
 	vim.keymap.set("n", "<leader>bh", "<cmd>BufferLineMovePrev<CR>", { desc = "Move Buffer Left" })
 	vim.keymap.set("n", "<leader>bl", "<cmd>BufferLineMoveNext<CR>", { desc = "Move Buffer Right" })
 
-	-- Close others
-	vim.keymap.set("n", "<leader>bd", "<cmd>BufferLineCloseOthers<CR>", { desc = "Close Other Buffers" })
+	-- Close
+	vim.keymap.set("n", "<leader>bd", "<cmd>bdelete<CR>", { desc = "Delete Buffer" })
+	vim.keymap.set("n", "<leader>bc", "<cmd>BufferLineCloseOthers<CR>", { desc = "Close Other Buffers" })
 end
 
 return M
