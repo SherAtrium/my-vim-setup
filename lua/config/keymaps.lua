@@ -53,6 +53,9 @@ map("n", "<Down>", "<C-w>5-", { desc = "Increase window height" })
 map("v", "<", "<gv", { desc = "indent left and reselect" })
 map("v", ">", ">gv", { desc = "indent right and reselect" })
 
+-- Clear highlight on <Esc>
+map("n", "<Esc>", "<cmd>nohlsearch<CR>")
+
 -- Quick quit
 map("n", "qq", "<cmd>q!<CR>", opts)
 

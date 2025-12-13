@@ -44,7 +44,7 @@ opt.autoindent = true
 opt.ignorecase = true -- Case-insensitive by default
 opt.smartcase = true -- Uppercase makes search case-sensitive
 opt.incsearch = true -- Incremental search
-opt.hlsearch = false -- Don't keep highlight after search
+opt.hlsearch = true -- Don't keep highlight after search
 
 ----------------------------------------------------------------------------------------------------
 -- COMPLETION / COMMAND LINE
