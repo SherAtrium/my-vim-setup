@@ -5,7 +5,7 @@ M.opts = {
 		mode = "buffers",
 		numbers = "none",
 
-		separator_style = "slant",
+		separator_style = "thin",
 		always_show_bufferline = true,
 		show_buffer_close_icons = true,
 		show_close_icon = false,
@@ -24,15 +24,47 @@ M.opts = {
 				separator = true,
 			},
 		},
-
-		right_mouse_command = "vert sbuffer %d",
-		middle_mouse_command = nil,
 	},
 
+	-- highlights = {
+	-- 	fill = { bg = "#1a1a1a" },
+	-- 	background = { bg = "#1a1a1a" },
+	-- 	buffer_selected = { bold = false, italic = false },
+	-- },
 	highlights = {
-		fill = { bg = "#1a1a1a" },
-		background = { bg = "#1a1a1a" },
-		buffer_selected = { bold = true, italic = true },
+		-- ACTIVE buffer
+		buffer_selected = {
+			-- fg = "#D9E0EE", -- bright text
+			bg = "#00151c", -- subtle cyan/blue shade (match screenshot)
+			bold = false,
+			italic = false,
+		},
+
+		-- INACTIVE buffer
+		buffer = {
+			-- fg = "#00151c", -- muted text
+			bg = "#00151c", -- darker background strip
+			italic = false,
+		},
+
+		-- FILL AREA (empty region)
+		fill = {
+			bg = "#00151c",
+		},
+
+		-- SEPARATOR between buffers
+		-- separator = {
+		-- 	fg = "#111318",
+		-- 	bg = "#161A23",
+		-- },
+		-- separator_selected = {
+		-- 	fg = "#1E2A3A",
+		-- 	bg = "#1E2A3A",
+		-- },
+		-- separator_visible = {
+		-- 	fg = "#161A23",
+		-- 	bg = "#161A23",
+		-- },
 	},
 }
 
