@@ -1,5 +1,7 @@
 local M = {}
 
+local bg = "#00151c"
+
 M.opts = {
 	options = {
 		mode = "buffers",
@@ -27,37 +29,83 @@ M.opts = {
 	},
 
 	highlights = {
-		-- fill = { bg = "#00151c" },
-		-- background = { bg = "#00151c" },
-		buffer_selected = {
-			-- 	fg = "#D9E0EE",
-			-- 	bg = "#00151c",
-			bold = false,
-			-- 	italic = false,
-		},
+		-- GLOBAL BACKGROUND AREAS
+		fill = { bg = bg },
+		background = { bg = bg },
 
-		-- INACTIVE buffer
-		-- buffer = {
-		-- 	fg = "#00151c",
-		-- 	bg = "#00151c",
-		-- 	italic = false,
-		-- },
+		-- TABS
+		tab = { bg = bg },
+		tab_selected = { bg = bg },
+		tab_close = { bg = bg },
 
-		-- FILL AREA (empty region)
+		-- CLOSE BUTTON
+		close_button = { bg = bg },
+		close_button_visible = { bg = bg },
+		close_button_selected = { bg = bg },
 
-		-- SEPARATOR between buffers
-		-- separator = {
-		-- 	fg = "#111318",
-		-- 	bg = "#161A23",
-		-- },
-		-- separator_selected = {
-		-- 	fg = "#1E2A3A",
-		-- 	bg = "#1E2A3A",
-		-- },
-		-- separator_visible = {
-		-- 	fg = "#161A23",
-		-- 	bg = "#161A23",
-		-- },
+		-- BUFFERS
+		buffer = { bg = bg },
+		buffer_visible = { bg = bg },
+		buffer_selected = { bg = bg, bold = false },
+
+		-- MODIFIED MARKERS
+		modified = { bg = bg },
+		modified_visible = { bg = bg },
+		modified_selected = { bg = bg },
+
+		-- DUPLICATES
+		duplicate = { bg = bg },
+		duplicate_visible = { bg = bg },
+		duplicate_selected = { bg = bg },
+
+		-- INDICATOR (underline bar)
+		indicator_selected = { bg = bg },
+		indicator_visible = { bg = bg },
+
+		-- DIAGNOSTICS
+		diagnostic = { bg = bg },
+		diagnostic_visible = { bg = bg },
+		diagnostic_selected = { bg = bg },
+
+		hint = { bg = bg },
+		hint_visible = { bg = bg },
+		hint_selected = { bg = bg },
+
+		hint_diagnostic = { bg = bg },
+		hint_diagnostic_visible = { bg = bg },
+		hint_diagnostic_selected = { bg = bg },
+
+		info = { bg = bg },
+		info_visible = { bg = bg },
+		info_selected = { bg = bg },
+
+		info_diagnostic = { bg = bg },
+		info_diagnostic_visible = { bg = bg },
+		info_diagnostic_selected = { bg = bg },
+
+		warning = { bg = bg },
+		warning_visible = { bg = bg },
+		warning_selected = { bg = bg },
+
+		warning_diagnostic = { bg = bg },
+		warning_diagnostic_visible = { bg = bg },
+		warning_diagnostic_selected = { bg = bg },
+
+		error = { bg = bg },
+		error_visible = { bg = bg },
+		error_selected = { bg = bg },
+
+		error_diagnostic = { bg = bg },
+		error_diagnostic_visible = { bg = bg },
+		error_diagnostic_selected = { bg = bg },
+
+		-- OFFSET BACKGROUND (Neo-tree gap)
+		offset_separator = { bg = bg },
+
+		-- SEPARATOR
+		separator = { bg = bg },
+		separator_visible = { bg = bg },
+		separator_selected = { bg = bg },
 	},
 }
 
