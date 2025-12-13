@@ -26,31 +26,24 @@ M.opts = {
 		},
 	},
 
-	-- highlights = {
-	-- 	fill = { bg = "#1a1a1a" },
-	-- 	background = { bg = "#1a1a1a" },
-	-- 	buffer_selected = { bold = false, italic = false },
-	-- },
 	highlights = {
-		-- ACTIVE buffer
+		-- fill = { bg = "#00151c" },
+		-- background = { bg = "#00151c" },
 		buffer_selected = {
-			-- fg = "#D9E0EE", -- bright text
-			bg = "#00151c", -- subtle cyan/blue shade (match screenshot)
+			-- 	fg = "#D9E0EE",
+			-- 	bg = "#00151c",
 			bold = false,
-			italic = false,
+			-- 	italic = false,
 		},
 
 		-- INACTIVE buffer
-		buffer = {
-			-- fg = "#00151c", -- muted text
-			bg = "#00151c", -- darker background strip
-			italic = false,
-		},
+		-- buffer = {
+		-- 	fg = "#00151c",
+		-- 	bg = "#00151c",
+		-- 	italic = false,
+		-- },
 
 		-- FILL AREA (empty region)
-		fill = {
-			bg = "#00151c",
-		},
 
 		-- SEPARATOR between buffers
 		-- separator = {
