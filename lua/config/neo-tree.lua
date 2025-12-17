@@ -104,7 +104,7 @@ function M.setup()
 			width = 40,
 
 			mappings = {
-				["<space>"] = "toggle_node",
+				-- ["<space>"] = "toggle_node",
 
 				-- Window picker
 				["<cr>"] = "open_with_window_picker",
@@ -137,6 +137,9 @@ function M.setup()
 				["q"] = "close_window",
 				["R"] = "refresh",
 				["?"] = "show_help",
+
+				["<leader>ff"] = "none",
+				["<leader>fg"] = "none",
 			},
 		},
 	})
