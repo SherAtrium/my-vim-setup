@@ -47,6 +47,16 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	callback = on_attach,
 })
 
+vim.api.nvim_create_autocmd("TermClose", {
+	pattern = "*lazygit",
+	group = vim.api.nvim_create_augroup("git_refresh_neotree", { clear = true }),
+	callback = function()
+		require("neo-tree.sources.filesystem.commands").refresh(
+			require("neo-tree.sources.manager").get_state("filesystem")
+		)
+	end,
+})
+
 --  BUFFER SAFETY & NEO-TREE LAYOUT RECOVERY
 --  ABOUT :
 --    • When the last real buffer is deleted, only Neo-tree remains.
