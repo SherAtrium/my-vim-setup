@@ -47,6 +47,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	callback = on_attach,
 })
 
+-- NEO-TREE REFRESH AFTER LAZYGIT
 vim.api.nvim_create_autocmd("TermClose", {
 	pattern = "*lazygit",
 	group = vim.api.nvim_create_augroup("git_refresh_neotree", { clear = true }),
