@@ -1,6 +1,6 @@
 -- ================================================================================================
 --  NVIM-CMP — AUTOCOMPLETION
---  ABOUT : Completion engine supporting LSP, snippets, buffer words, paths, AI, etc.
+--  ABOUT : Completion engine supporting LSP, snippets, buffer words, paths, etc.
 --  LINKS : https://github.com/hrsh7th/nvim-cmp
 -- ================================================================================================
 
@@ -47,7 +47,7 @@ return {
 				format = lspkind.cmp_format({
 					mode = "symbol_text",
 					menu = {
-						codeium = "",
+						-- codeium = "",
 						luasnip = "",
 						buffer = "",
 						path = "",
@@ -62,8 +62,8 @@ return {
 			mapping = cmp.mapping.preset.insert({
 				["<C-k>"] = cmp.mapping.select_prev_item(),
 				["<C-j>"] = cmp.mapping.select_next_item(),
-				["<C-b>"] = cmp.mapping.scroll_docs(-4),
-				["<C-f>"] = cmp.mapping.scroll_docs(4),
+				-- ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+				-- ["<C-f>"] = cmp.mapping.scroll_docs(4),
 				["<C-Space>"] = cmp.mapping.complete(),
 				["<C-e>"] = cmp.mapping.abort(),
 				["<CR>"] = cmp.mapping.confirm({ select = false }),
@@ -73,7 +73,7 @@ return {
 			-- SOURCES
 			------------------------------------------------------------------------------------------------
 			sources = {
-				{ name = "codeium" }, -- AI
+				-- { name = "codeium" }, -- AI
 				{ name = "luasnip" }, -- snippets
 				{ name = "nvim_lsp" }, -- LSP
 				{ name = "buffer" }, -- buffer words

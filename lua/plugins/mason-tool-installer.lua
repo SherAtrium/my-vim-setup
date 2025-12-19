@@ -45,6 +45,6 @@ return {
 
 		-- Automatically install everything on startup
 		run_on_start = true,
-		auto_update = false,
+		auto_update = true,
 	},
 }
