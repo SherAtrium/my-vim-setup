@@ -118,12 +118,19 @@ function M.setup()
 				["v"] = "open_vsplit",
 				["t"] = "open_tabnew",
 
-				-- Filtering
-				["f"] = "filter_on_submit",
-				["F"] = "clear_filter",
+				-- -- Filtering
+				-- ["f"] = "filter_on_submit",
+				-- ["F"] = "clear_filter",
 
 				-- File actions
-				["P"] = "toggle_preview",
+				["P"] = {
+					"toggle_preview",
+					config = {
+						use_float = true,
+						use_snacks_image = true,
+						use_image_nvim = true,
+					},
+				},
 				["<esc>"] = "cancel",
 
 				["a"] = { "add", config = { show_path = "relative" } },
