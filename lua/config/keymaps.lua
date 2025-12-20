@@ -105,26 +105,16 @@ map("n", "<leader>fX", "<cmd>FzfLua diagnostics_workspace<CR>", { desc = "Worksp
 --  TROUBLE — Diagnostics & LSP UI (<leader>x…)
 -- ================================================================================================
 
-map("n", "<leader>xx", "<cmd>Trouble diagnostics toggle<CR>", { desc = "Diagnostics (Workspace)" })
-map("n", "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<CR>", { desc = "Diagnostics (Buffer)" })
+map("n", "<leader>dd", "<cmd>Trouble diagnostics toggle<CR>", { desc = "Diagnostics: Workspace (Trouble)" })
+map("n", "<leader>dD", "<cmd>Trouble diagnostics toggle filter.buf=0<CR>", { desc = "Diagnostics: Buffer (Trouble)" })
 
-map("n", "<leader>xQ", "<cmd>Trouble qflist toggle<CR>", { desc = "Quickfix" })
-map("n", "<leader>xL", "<cmd>Trouble loclist toggle<CR>", { desc = "Location List" })
+map("n", "<leader>dq", "<cmd>Trouble qflist toggle<CR>", { desc = "Diagnostics: Quickfix (Trouble)" })
 
-map("n", "<leader>xl", "<cmd>Trouble lsp toggle<CR>", { desc = "LSP Definitions/Refs" })
-map("n", "<leader>xs", "<cmd>Trouble symbols toggle<CR>", { desc = "LSP Symbols" })
+map("n", "<leader>dl", "<cmd>Trouble loclist toggle<CR>", { desc = "Diagnostics: Location List (Trouble)" })
 
--- ================================================================================================
---  FORMAT & LINT (<leader>c…)
--- ================================================================================================
+map("n", "<leader>ds", "<cmd>Trouble symbols toggle<CR>", { desc = "Diagnostics: Symbols (Trouble)" })
 
-map("n", "<leader>cf", function()
-	require("conform").format()
-end, { desc = "Format Buffer" })
-
-map("n", "<leader>ll", function()
-	require("lint").try_lint()
-end, { desc = "Lint Buffer" })
+map("n", "<leader>dr", "<cmd>Trouble lsp toggle<CR>", { desc = "Diagnostics: LSP Refs/Defs" })
 
 -- ================================================================================================
 --  NATIVE LSP (<leader>l…)
@@ -144,8 +134,8 @@ map("n", "<leader>li", vim.lsp.buf.implementation, { desc = "Go to Implementatio
 map("n", "<leader>lr", vim.lsp.buf.references, { desc = "Find References" })
 
 -- Actions
-map("n", "<leader>la", vim.lsp.buf.code_action, { desc = "Code Action" })
-map("n", "<leader>ln", vim.lsp.buf.rename, { desc = "Rename Symbol" })
+map("n", "<leader>a", vim.lsp.buf.code_action, { desc = "Action: Code Action" })
+map("n", "<leader>r", vim.lsp.buf.rename, { desc = "Refactor: Rename Symbol" })
 
 -- Diagnostics (native)
 map("n", "<leader>do", vim.diagnostic.open_float, { desc = "Diagnostics (Float)" })
@@ -177,4 +167,4 @@ map("n", "<leader>?", "<cmd>WhichKey<CR>", { desc = "Show Keybinds" })
 --  MISC
 -- ================================================================================================
 
-map({ "n", "x" }, "gx", ":!open <cfile><CR>", { desc = "Open URL", silent = true })
+map({ "n", "x" }, "gx", ":!open <cfile><CR>", { desc = "Open URL" })

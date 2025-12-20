@@ -19,40 +19,6 @@ M.on_attach = function(event)
 	if not client then
 		return
 	end
-
-	local bufnr = event.buf
-	local keymap = vim.keymap.set
-
-	local opts = {
-		noremap = true, -- avoid recursive mappings
-		silent = true, -- avoid echoing commands
-		buffer = bufnr, -- keymap only applies to this buffer
-	}
-
-	------------------------------------------------------------------------------------------------
-	-- ORGANIZE IMPORTS (if supported by server)
-	-- Creates mapping: <leader>coi
-	-- Performs:
-	--   1. LSP codeAction("source.organizeImports")
-	--   2. Formats afterwards to maintain consistent code style
-	------------------------------------------------------------------------------------------------
-	if client:supports_method("textDocument/codeAction", bufnr) then
-		keymap("n", "<leader>coi", function()
-			vim.lsp.buf.code_action({
-				context = {
-					only = { "source.organizeImports" },
-					diagnostics = {},
-				},
-				apply = true,
-				bufnr = bufnr,
-			})
-
-			-- Format AFTER imports have been reorganized
-			vim.defer_fn(function()
-				vim.lsp.buf.format({ bufnr = bufnr })
-			end, 50) -- small delay so import operation finishes first
-		end, opts)
-	end
 end
 
 return M
