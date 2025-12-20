@@ -14,7 +14,7 @@ function M.setup()
 		-- timeout_ms: Maximum wait time for formatter
 		-- lsp_format = "fallback": Use LSP formatting if no tool is defined
 		format_on_save = {
-			timeout_ms = 3000,
+			timeout_ms = 1000,
 			lsp_format = "fallback",
 		},
 

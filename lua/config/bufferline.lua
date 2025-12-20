@@ -21,7 +21,7 @@ M.opts = {
 		offsets = {
 			{
 				filetype = "neo-tree",
-				text = "File Explorer",
+				text = "Root",
 				highlight = "Directory",
 				separator = true,
 			},
