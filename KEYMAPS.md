@@ -222,10 +222,10 @@ While the FZF window is open:
 
 ## Comments — mini.comment
 
-| Key     | Action         |
-| ------- | -------------- |
-| `<C-/>` | Toggle comment |
-| `gc`    | Comment object |
+| Key         | Action         |
+| ----------- | -------------- |
+| `<leader>/` | Toggle comment |
+| `gc`        | Comment object |
 
 ## Surround — mini.surround
 
