@@ -26,7 +26,7 @@ vim.g.maplocalleader = " "
 --  GENERAL UX IMPROVEMENTS
 -- ================================================================================================
 
--- better window navigation
+-- better window navigation (ALREDY DOING IN VIM_TMUX_NAVIGATOR PLUGIN)
 -- map("n", "<c-h>", "<c-w>h", { desc = "move to left window" })
 -- map("n", "<c-j>", "<c-w>j", { desc = "move to bottom window" })
 -- map("n", "<c-k>", "<c-w>k", { desc = "move to top window" })
