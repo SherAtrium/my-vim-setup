@@ -20,8 +20,8 @@ return {
 		version = "*",
 		opts = {
 			mappings = {
-				comment_line = "<C-/>",
-				comment_visual = "<C-/>",
+				comment_line = "<leader>/",
+				comment_visual = "<leade>/",
 				comment = "gc",
 				textobject = "gc",
 			},
