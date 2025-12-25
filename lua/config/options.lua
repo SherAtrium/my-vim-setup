@@ -26,6 +26,7 @@ opt.winblend = 0 -- No transparency for floating windows
 
 opt.colorcolumn = "100" -- Visual guide at 100 chars
 opt.fillchars = { eob = " " } -- Hide ~ in empty lines
+opt.cmdheight = 0 -- disable command line
 
 ----------------------------------------------------------------------------------------------------
 -- INDENTATION

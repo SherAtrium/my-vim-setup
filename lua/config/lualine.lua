@@ -42,7 +42,6 @@ end
 
 function M.setup()
 	local lualine = require("lualine")
-	local colors = require("solarized-osaka")
 
 	lualine.setup({
 		options = {
@@ -56,16 +55,24 @@ function M.setup()
 		sections = {
 			lualine_a = { "mode" },
 			lualine_b = {
-				{ "branch", color = { fg = colors.fg, bg = colors.bg }, separator = { right = "" } },
+				{ "branch", color = { bg = "#93a1a1" }, separator = { right = "" } },
+			},
+			lualine_c = {
+				{ "diagnostics", color = { bg = "none" }, separator = { right = "" } },
+				{ "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
+				{ "filename", path = 1, padding = 0 },
+			},
+			lualine_x = {
+				{ node_version, color = { bg = "none", fg = "#859900" }, separator = { left = "" } },
 				{
 					"diff",
 					symbols = { added = " ", modified = " ", removed = " " },
-					separator = { right = "" },
-					diff_color = {
-						added = { fg = colors.green },
-						modified = { fg = colors.orange },
-						removed = { fg = colors.red },
-					},
+					separator = { left = "" },
+					-- diff_color = {
+					-- added = { fg = colors.green },
+					-- modified = { fg = colors.orange },
+					-- removed = { fg = colors.red },
+					-- },
 					color = { bg = "none" },
 					source = function()
 						local gitsigns = vim.b.gitsigns_status_dict
@@ -78,14 +85,6 @@ function M.setup()
 						end
 					end,
 				},
-			},
-			lualine_c = {
-				{ "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
-				{ "filename", path = 1, padding = 0 },
-			},
-			lualine_x = {
-				{ node_version, color = { bg = "none", fg = "#859900" }, separator = { left = "" } },
-				{ "diagnostics", color = { bg = "none" }, separator = { left = "" } },
 				-- {
 				-- 	-- Showing correct system logo
 				-- 	function()
@@ -93,21 +92,22 @@ function M.setup()
 				-- 		return (is_mac and "" or "")
 				-- 	end,
 				-- },
-				{
-					"encoding",
-					color = { bg = "none" },
-					separator = { left = "" },
-				},
+				-- {
+				-- "encoding",
+				-- color = { bg = "none" },
+				-- separator = { left = "" },
+				-- },
 			},
 			lualine_y = {
-				-- { "progress", separator = " ", padding = { left = 1, right = 0 } },
-				-- { "location", padding = { left = 0, right = 1 } },
+				{ "progress", color = { bg = "#93a1a1" }, separator = " ", padding = { left = 1, right = 1 } },
+				{ "location", color = { bg = "#93a1a1" }, padding = { left = 0, right = 1 } },
 			},
 			lualine_z = {
-				{ "location", padding = { left = 1, right = 0 } },
-				-- function()
-				-- 	return " " .. os.date("%R")
-				-- end,
+				-- { "location", padding = { left = 1, right = 0 } },
+				{ " ", padding = { left = 1, right = 1 }, color = { bg = "#002b36" }, separator = " " },
+				function()
+					return " " .. os.date("%R")
+				end,
 			},
 		},
 	})
