@@ -43,62 +43,66 @@ end
 function M.setup()
 	local lualine = require("lualine")
 
-	local colors = {
-		-- Core Solarized (Dark)
-		base03 = "#002b36", -- main background
-		-- base02 = "#073642", -- panels / sidebars
-		base01 = "#586e75", -- inactive text
-		-- base00 = "#657b83",
-		base0 = "#839496", -- primary text
-		base1 = "#93a1a1", -- separators / subtle accents
-		base2 = "#eee8d5", -- light foreground
-		-- base3 = "#fdf6e3",
+	-- local colors = {
+	-- 	-- Core Solarized (Dark)
+	-- 	base03 = "#002b36", -- main background
+	-- 	-- base02 = "#073642", -- panels / sidebars
+	-- 	base01 = "#586e75", -- inactive text
+	-- 	-- base00 = "#657b83",
+	-- 	base0 = "#839496", -- primary text
+	-- 	base1 = "#93a1a1", -- separators / subtle accents
+	-- 	base2 = "#eee8d5", -- light foreground
+	-- 	-- base3 = "#fdf6e3",
+	--
+	-- 	black = "#15161E",
+	-- 	yellow = "#b58900",
+	-- 	orange = "#cb4b16",
+	-- 	red = "#dc322f",
+	-- 	magenta = "#d33682",
+	-- 	violet = "#6c71c4",
+	-- 	blue = "#268bd2",
+	-- 	cyan = "#2aa198",
+	-- 	green = "#859900",
+	-- }
 
-		-- Accents
-		black = "#15161E",
-		yellow = "#b58900",
-		orange = "#cb4b16",
-		red = "#dc322f",
-		magenta = "#d33682",
-		violet = "#6c71c4",
-		blue = "#268bd2",
-		cyan = "#2aa198",
-		green = "#859900",
-	}
-
-	local solarized_custom_theme = {
-		normal = {
-			a = { fg = colors.base2, bg = colors.yellow, gui = "bold" }, -- MODE
-			b = { fg = colors.base03, bg = colors.base2, gui = "bold" }, -- BRANCH
-			c = { fg = colors.base0, bg = colors.base03 }, -- DIAGNOSTICS / FILE TYPE ICON / FILE INFO
-
-			x = { fg = colors.green, bg = colors.base03 }, -- NODE VERSION / DIFF
-			y = { fg = colors.black, bg = colors.base1, gui = "bold" },
-			z = { fg = colors.base2, bg = colors.yellow, gui = "bold" },
-		},
-
-		insert = {
-			a = { fg = colors.base2, bg = colors.green, gui = "bold" },
-		},
-		visual = {
-			a = { fg = colors.base2, bg = colors.violet, gui = "bold" },
-		},
-		replace = {
-			a = { fg = colors.base2, bg = colors.red, gui = "bold" },
-		},
-		command = {
-			a = { fg = colors.base2, bg = colors.orange, gui = "bold" },
-		},
-
-		inactive = {
-			a = { fg = colors.base01, bg = colors.base03 },
-			b = { fg = colors.base01, bg = colors.base03 },
-			c = { fg = colors.base01, bg = colors.base03 },
-			x = { fg = colors.base01, bg = colors.base03 },
-			y = { fg = colors.base01, bg = colors.base03 },
-			z = { fg = colors.base01, bg = colors.base03 },
-		},
-	}
+	-- This is a custom theming which uses same colors as tmux it is not complete yet
+	-- local solarized_custom_theme = {
+	-- 	normal = {
+	-- 		a = { fg = colors.base2, bg = colors.yellow, gui = "bold" }, -- MODE
+	-- 		b = { fg = colors.base03, bg = colors.base2, gui = "bold" }, -- BRANCH
+	-- 		c = { fg = colors.base0, bg = colors.base03 }, -- DIAGNOSTICS / FILE TYPE ICON / FILE INFO
+	--
+	-- 		x = { fg = colors.green, bg = colors.base03 }, -- NODE VERSION / DIFF
+	-- 		y = { fg = colors.base2, bg = colors.green, gui = "bold" },
+	-- 		z = { fg = colors.base2, bg = colors.yellow, gui = "bold" },
+	-- 	},
+	--
+	-- 	insert = {
+	-- 		a = { fg = colors.base2, bg = colors.green, gui = "bold" },
+	-- 		y = { fg = colors.base0, bg = colors.base03, gui = "bold" },
+	-- 	},
+	-- 	visual = {
+	-- 		a = { fg = colors.base2, bg = colors.violet, gui = "bold" },
+	-- 		y = { fg = colors.base0, bg = colors.base03, gui = "bold" },
+	-- 	},
+	-- 	replace = {
+	-- 		a = { fg = colors.base2, bg = colors.red, gui = "bold" },
+	-- 		y = { fg = colors.base0, bg = colors.base03, gui = "bold" },
+	-- 	},
+	-- 	command = {
+	-- 		a = { fg = colors.base2, bg = colors.orange, gui = "bold" },
+	-- 		y = { fg = colors.base0, bg = colors.base03, gui = "bold" },
+	-- 	},
+	--
+	-- 	inactive = {
+	-- 		a = { fg = colors.base01, bg = colors.base03 },
+	-- 		b = { fg = colors.base01, bg = colors.base03 },
+	-- 		c = { fg = colors.base01, bg = colors.base03 },
+	-- 		x = { fg = colors.base01, bg = colors.base03 },
+	-- 		y = { fg = colors.base01, bg = colors.base03 },
+	-- 		z = { fg = colors.base01, bg = colors.base03 },
+	-- 	},
+	-- }
 
 	lualine.setup({
 		options = {
@@ -106,7 +110,7 @@ function M.setup()
 			component_separators = { left = "", right = "" },
 			section_separators = { left = "", right = "" },
 			padding = 1,
-			theme = solarized_custom_theme,
+			theme = "solarized-osaka",
 			globalstatus = true, -- keep single statusline (not per pane/window)
 		},
 
@@ -127,6 +131,7 @@ function M.setup()
 				},
 				{
 					"filetype",
+					separator = "",
 					icon_only = true,
 					padding = { left = 1, right = 0 },
 				},
@@ -151,25 +156,25 @@ function M.setup()
 						end
 					end,
 				},
+				{
+					node_version,
+					color = { fg = "#859900" },
+				},
 			},
 			lualine_y = {
 				{
-					node_version,
-					color = { fg = colors.black, bg = colors.base02, gui = "bold" },
-				},
-			},
-			lualine_z = {
-				{
-					"location",
+					"progress",
 					separator = "",
 					padding = { left = 1, right = 0 },
 				},
 				{
-					"progress",
+					"location",
 				},
-				-- function()
-				-- 	return " " .. os.date("%R")
-				-- end,
+			},
+			lualine_z = {
+				function()
+					return " " .. os.date("%R")
+				end,
 				-- {
 				-- 	-- Showing correct system logo
 				-- 	function()
