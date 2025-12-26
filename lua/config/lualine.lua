@@ -50,6 +50,7 @@ function M.setup()
 			section_separators = { left = "", right = "" },
 			padding = 1,
 			theme = "solarized-osaka",
+			globalstatus = true, -- keep single statusline
 		},
 
 		sections = {
