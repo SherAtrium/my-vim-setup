@@ -43,13 +43,70 @@ end
 function M.setup()
 	local lualine = require("lualine")
 
+	local colors = {
+		-- Core Solarized (Dark)
+		base03 = "#002b36", -- main background
+		-- base02 = "#073642", -- panels / sidebars
+		base01 = "#586e75", -- inactive text
+		-- base00 = "#657b83",
+		base0 = "#839496", -- primary text
+		base1 = "#93a1a1", -- separators / subtle accents
+		base2 = "#eee8d5", -- light foreground
+		-- base3 = "#fdf6e3",
+
+		-- Accents
+		black = "#15161E",
+		yellow = "#b58900",
+		orange = "#cb4b16",
+		red = "#dc322f",
+		magenta = "#d33682",
+		violet = "#6c71c4",
+		blue = "#268bd2",
+		cyan = "#2aa198",
+		green = "#859900",
+	}
+
+	local solarized_custom_theme = {
+		normal = {
+			a = { fg = colors.base2, bg = colors.yellow, gui = "bold" }, -- MODE
+			b = { fg = colors.base03, bg = colors.base2, gui = "bold" }, -- BRANCH
+			c = { fg = colors.base0, bg = colors.base03 }, -- DIAGNOSTICS / FILE TYPE ICON / FILE INFO
+
+			x = { fg = colors.green, bg = colors.base03 }, -- NODE VERSION / DIFF
+			y = { fg = colors.black, bg = colors.base1, gui = "bold" },
+			z = { fg = colors.base2, bg = colors.yellow, gui = "bold" },
+		},
+
+		insert = {
+			a = { fg = colors.base2, bg = colors.green, gui = "bold" },
+		},
+		visual = {
+			a = { fg = colors.base2, bg = colors.violet, gui = "bold" },
+		},
+		replace = {
+			a = { fg = colors.base2, bg = colors.red, gui = "bold" },
+		},
+		command = {
+			a = { fg = colors.base2, bg = colors.orange, gui = "bold" },
+		},
+
+		inactive = {
+			a = { fg = colors.base01, bg = colors.base03 },
+			b = { fg = colors.base01, bg = colors.base03 },
+			c = { fg = colors.base01, bg = colors.base03 },
+			x = { fg = colors.base01, bg = colors.base03 },
+			y = { fg = colors.base01, bg = colors.base03 },
+			z = { fg = colors.base01, bg = colors.base03 },
+		},
+	}
+
 	lualine.setup({
 		options = {
 			icons_enabled = true,
 			component_separators = { left = "", right = "" },
 			section_separators = { left = "", right = "" },
 			padding = 1,
-			theme = "solarized-osaka",
+			theme = solarized_custom_theme,
 			globalstatus = true, -- keep single statusline (not per pane/window)
 		},
 
@@ -57,26 +114,20 @@ function M.setup()
 			lualine_a = {
 				{
 					"mode",
-					color = { gui = "bold" },
 				},
 			},
 			lualine_b = {
 				{
 					"branch",
-					color = { bg = "#93a1a1" },
-					separator = { right = "" },
 				},
 			},
 			lualine_c = {
 				{
 					"diagnostics",
-					color = { bg = "none" },
-					separator = { right = "" },
 				},
 				{
 					"filetype",
 					icon_only = true,
-					separator = "",
 					padding = { left = 1, right = 0 },
 				},
 				{
@@ -87,15 +138,8 @@ function M.setup()
 			},
 			lualine_x = {
 				{
-					node_version,
-					color = { bg = "none", fg = "#859900" },
-					separator = { left = "" },
-				},
-				{
 					"diff",
 					symbols = { added = " ", modified = " ", removed = " " },
-					separator = { left = "" },
-					color = { bg = "none" },
 					source = function()
 						local gitsigns = vim.b.gitsigns_status_dict
 						if gitsigns then
@@ -110,22 +154,22 @@ function M.setup()
 			},
 			lualine_y = {
 				{
-					"progress",
-					color = { bg = "#93a1a1" },
-					separator = " ",
-					padding = { left = 1, right = 1 },
-				},
-				{
-					"location",
-					color = { bg = "#93a1a1" },
-					padding = { left = 0, right = 1 },
+					node_version,
+					color = { fg = colors.black, bg = colors.base02, gui = "bold" },
 				},
 			},
 			lualine_z = {
-				function()
-					return " " .. os.date("%R")
-				end,
-				-- { "location", padding = { left = 1, right = 0 } },
+				{
+					"location",
+					separator = "",
+					padding = { left = 1, right = 0 },
+				},
+				{
+					"progress",
+				},
+				-- function()
+				-- 	return " " .. os.date("%R")
+				-- end,
 				-- {
 				-- 	-- Showing correct system logo
 				-- 	function()
@@ -135,8 +179,6 @@ function M.setup()
 				-- },
 				-- {
 				-- "encoding",
-				-- color = { bg = "none" },
-				-- separator = { left = "" },
 				-- },
 			},
 		},

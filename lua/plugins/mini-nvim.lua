@@ -21,7 +21,7 @@ return {
 		opts = {
 			mappings = {
 				comment_line = "<leader>/",
-				comment_visual = "<leade>/",
+				comment_visual = "<leader>/",
 				comment = "gc",
 				textobject = "gc",
 			},
