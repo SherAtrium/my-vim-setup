@@ -14,6 +14,16 @@ function M.setup()
 		enable_git_status = true, -- Show Git file status
 		enable_diagnostics = true, -- Show LSP diagnostics inside tree
 
+		-- ✅ AUTO-CLOSE ON FILE OPEN
+		event_handlers = {
+			{
+				event = "file_opened",
+				handler = function()
+					require("neo-tree.command").execute({ action = "close" })
+				end,
+			},
+		},
+
 		-- COMPONENT CONFIGURATION
 		default_component_configs = {
 
