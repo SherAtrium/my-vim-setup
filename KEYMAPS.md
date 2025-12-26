@@ -42,6 +42,12 @@ clarity, and zero conflicts.
 | `<Esc>`   | Clear search highlight            |
 | `qq`      | Quit without saving               |
 
+## 🤖 AI — Copilot
+
+| Key             | Mode            | Action                    |
+| --------------- | --------------- | ------------------------- |
+| `<leader><Tab>` | Insert / Visual | Accept Copilot suggestion |
+
 ### Visual Mode
 
 | Key | Action                  |
