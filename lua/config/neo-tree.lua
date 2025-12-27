@@ -14,7 +14,7 @@ function M.setup()
 		enable_git_status = true, -- Show Git file status
 		enable_diagnostics = true, -- Show LSP diagnostics inside tree
 
-		-- ✅ AUTO-CLOSE ON FILE OPEN
+		-- AUTO-CLOSE ON FILE OPEN
 		event_handlers = {
 			{
 				event = "file_opened",
