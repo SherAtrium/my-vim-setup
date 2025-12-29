@@ -26,7 +26,7 @@ return {
 			-- ---------------------------
 			-- Formatters
 			-- ---------------------------
-			"prettierd", -- use prettierd, not prettier
+			"prettier",
 			"shfmt",
 			"stylua",
 
