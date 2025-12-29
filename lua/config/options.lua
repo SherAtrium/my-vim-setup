@@ -27,6 +27,7 @@ opt.winblend = 0 -- No transparency for floating windows
 opt.colorcolumn = "100" -- Visual guide at 100 chars
 opt.fillchars = { eob = " " } -- Hide ~ in empty lines
 opt.cmdheight = 0 -- disable command line
+vim.opt.confirm = false -- Disable confirm dialog, prefer explicit saves
 
 ----------------------------------------------------------------------------------------------------
 -- INDENTATION
@@ -65,12 +66,13 @@ opt.writebackup = false
 opt.swapfile = false
 opt.undofile = true -- Persistent undo history
 
-opt.updatetime = 200 -- Affects CursorHold (LSP hover)
+opt.updatetime = 300 -- Affects CursorHold (LSP hover)
 opt.timeoutlen = 400 -- Faster keymap sequence timeout
 opt.ttimeoutlen = 0 -- No delay for ESC key
 
 opt.autoread = true -- Reload files changed outside Nvim
 opt.autowrite = false -- Only write when explicitly saving
+opt.autowriteall = false -- Don't auto-save before commands
 
 ----------------------------------------------------------------------------------------------------
 -- FOLDING (Tree-sitter based)

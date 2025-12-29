@@ -58,6 +58,47 @@ vim.api.nvim_create_autocmd("TermClose", {
 	end,
 })
 
+local augroup = vim.api.nvim_create_augroup("AutoSaveReload", { clear = true })
+
+-- Auto-save when leaving buffer or losing focus
+vim.api.nvim_create_autocmd({ "BufLeave", "WinLeave", "FocusLost" }, {
+	group = augroup,
+	callback = function()
+		if vim.bo.modified and vim.bo.buftype == "" then
+			vim.cmd("silent! write")
+		end
+	end,
+})
+
+-- Check for external file changes
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold" }, {
+	group = augroup,
+	command = "checktime",
+})
+
+-- Reload file changed outside Neovim + refresh gitsigns
+vim.api.nvim_create_autocmd("FileChangedShellPost", {
+	group = augroup,
+	callback = function()
+		-- Reload file from disk
+		vim.cmd("edit!")
+
+		-- Reattach gitsigns to the buffer
+		local ok, gitsigns = pcall(require, "gitsigns")
+		if ok then
+			local bufnr = vim.api.nvim_get_current_buf()
+
+			-- Detach first (important)
+			pcall(gitsigns.detach, bufnr)
+
+			-- Reattach
+			gitsigns.attach(bufnr)
+		end
+
+		vim.notify("File reloaded from disk", vim.log.levels.INFO)
+	end,
+})
+
 --  BUFFER SAFETY & NEO-TREE LAYOUT RECOVERY
 --  ABOUT :
 --    • When the last real buffer is deleted, only Neo-tree remains.
