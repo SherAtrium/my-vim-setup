@@ -7,37 +7,49 @@ local M = {}
 
 function M.setup()
 	local conform = require("conform")
+	local util = require("conform.util")
 
 	conform.setup({
-
 		-- AUTO FORMAT ON SAVE
-		-- timeout_ms: Maximum wait time for formatter
-		-- lsp_format = "fallback": Use LSP formatting if no tool is defined
 		format_on_save = {
 			timeout_ms = 1000,
-			lsp_format = "fallback",
+			lsp_format = false, -- IMPORTANT
+		},
+
+		-- FORMATTER DEFINITIONS
+		formatters = {
+			biome = {
+				command = "bunx",
+				args = { "biome", "format", "--write", "$FILENAME" },
+				stdin = false,
+				cwd = util.root_file({
+					"biome.json",
+					"biome.jsonc",
+					"package.json",
+				}),
+			},
 		},
 
 		-- FORMATTERS PER FILETYPE
 		formatters_by_ft = {
-			-- Web languages
-			javascript = { "prettierd", "prettier" },
-			typescript = { "prettierd", "prettier" },
-			javascriptreact = { "prettierd" },
-			typescriptreact = { "prettierd" },
-			vue = { "prettierd" },
-			svelte = { "prettierd" },
+			-- Web
+			javascript = { "biome", "prettier" },
+			typescript = { "biome", "prettier" },
+			javascriptreact = { "biome", "prettier" },
+			typescriptreact = { "biome", "prettier" },
+			vue = { "biome", "prettier" },
+			svelte = { "biome", "prettier" },
 
-			-- Static content
-			html = { "prettierd" },
-			css = { "prettierd" },
-			scss = { "prettierd" },
-			json = { "prettierd" },
-			jsonc = { "prettierd" },
-			yaml = { "prettierd" },
-			markdown = { "prettierd" },
+			-- Static
+			html = { "biome", "prettier" },
+			css = { "biome", "prettier" },
+			scss = { "biome", "prettier" },
+			json = { "biome", "prettier" },
+			jsonc = { "biome", "prettier" },
+			yaml = { "biome", "prettier" },
+			markdown = { "biome", "prettier" },
 
-			-- Other languages
+			-- Other
 			lua = { "stylua" },
 			sh = { "shfmt" },
 		},
