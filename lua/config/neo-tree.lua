@@ -15,14 +15,14 @@ function M.setup()
 		enable_diagnostics = true, -- Show LSP diagnostics inside tree
 
 		-- AUTO-CLOSE ON FILE OPEN
-		event_handlers = {
-			{
-				event = "file_opened",
-				handler = function()
-					require("neo-tree.command").execute({ action = "close" })
-				end,
-			},
-		},
+		-- event_handlers = {
+		-- 	{
+		-- 		event = "file_opened",
+		-- 		handler = function()
+		-- 			require("neo-tree.command").execute({ action = "close" })
+		-- 		end,
+		-- 	},
+		-- },
 
 		-- COMPONENT CONFIGURATION
 		default_component_configs = {
