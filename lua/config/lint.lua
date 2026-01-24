@@ -11,13 +11,13 @@ function M.setup()
 	-- LINTERS PER FILETYPE
 	lint.linters_by_ft = {
 		-- JavaScript ecosystem
-		javascript = { "eslint_d" },
-		typescript = { "eslint_d" },
-		javascriptreact = { "eslint_d" },
-		typescriptreact = { "eslint_d" },
-		vue = { "eslint_d" },
-		svelte = { "eslint_d" },
-		node = { "eslint_d" },
+		javascript = { "eslint" },
+		typescript = { "eslint" },
+		javascriptreact = { "eslint" },
+		typescriptreact = { "eslint" },
+		vue = { "eslint" },
+		svelte = { "eslint" },
+		node = { "eslint" },
 
 		-- General-purpose
 		markdown = { "markdownlint" },

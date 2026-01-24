@@ -16,7 +16,6 @@ return {
 			"bash-language-server",
 			"dockerfile-language-server",
 			"emmet-ls",
-			"eslint_d", -- used for linting/formatting JS/TS
 			"json-lsp",
 			"lua-language-server",
 			"tailwindcss-language-server",

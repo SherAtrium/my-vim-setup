@@ -12,7 +12,7 @@ return {
 	lazy = false, -- ensure it loads early
 
 	config = function()
-		require("nvim-treesitter.configs").setup({
+		require("nvim-treesitter").setup({
 
 			--------------------------------------------------------------------------------------------
 			-- Essential parsers
